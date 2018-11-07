@@ -1,0 +1,84 @@
+<h1 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h1><p>You can load the Prettify script to highlight code in your web pages.</p>
+<p>It adds styles to code snippets so that token boundaries stand out and your<br>readers can get the gist of your code without having to mentally perform a<br>left-to-right parse.</p>
+<h2 id="Marking-code-sections"><a href="#Marking-code-sections" class="headerlink" title="Marking code sections"></a>Marking code sections</h2><p>The prettyprinter looks for <code>&lt;pre&gt;</code>, <code>&lt;code&gt;</code>, or <code>&lt;xmp&gt;</code> elements with the<br><em>prettyprint</em> class, and adds <code>&lt;span&gt;</code>s to colorize keywords, strings,<br>comments, and other token types.</p>
+<pre><code class="HTML"><span class="tag">&lt;<span class="name">pre</span> <span class="attr">class</span>=<span class="string">"prettyprint"</span>&gt;</span>
+source code here
+<span class="tag">&lt;/<span class="name">pre</span>&gt;</span>
+</code></pre>
+<p>If you’re using Markdown or some other HTML generator that does not add<br>classes, you can alternatively ask the prettifier to target your code by<br>preceding it with a processing instruction thus:</p>
+<pre><code class="HTML">&lt;?prettify?&gt;
+<span class="tag">&lt;<span class="name">pre</span> <span class="attr">class</span>=<span class="string">"prettyprint"</span>&gt;</span>
+code here
+<span class="tag">&lt;/<span class="name">pre</span>&gt;</span>
+</code></pre>
+<p><a href="https://rawgit.com/google/code-prettify/master/examples/quine.html">Larger example</a></p>
+<h2 id="Auto-Loader"><a href="#Auto-Loader" class="headerlink" title="Auto-Loader"></a>Auto-Loader</h2><p>You can load the JavaScript and CSS for prettify via one URL:</p>
+<pre><code class="HTML"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+</code></pre>
+<p>This will load the entire system and schedule the prettifier to run on page<br>load.  There are a variety of additional options you can specify (as CGI<br>arguments) to configure the runner.</p>
+<table>
+<thead>
+<tr>
+<th>CGI parameter</th>
+<th>default</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>autorun=(true, false)</td>
+<td>true</td>
+<td>run automatically on page load</td>
+</tr>
+<tr>
+<td>lang=…</td>
+<td>none</td>
+<td>Loads the language handler for the given language which is usually the file extension for source files for that language.  See the <a href="../src">index of language handlers</a>.  If specified multiple times (<code>?lang=css&amp;lang=ml</code>) then all are loaded.</td>
+</tr>
+<tr>
+<td>skin=…</td>
+<td>none</td>
+<td>See the <a href="https://cdn.rawgit.com/google/code-prettify/master/styles/index.html">skin gallery</a>.  If specified multiple times, the first one to successfully load is used.</td>
+</tr>
+<tr>
+<td>callback=js_ident</td>
+<td></td>
+<td><code>window.exports[&quot;js_ident&quot;]</code> will be called when prettyprinting finishes.  If specified multiple times, all are called.</td>
+</tr>
+</tbody>
+</table>
+<p>For example:</p>
+<pre><code class="HTML"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;amp;skin=sunburst"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+</code></pre>
+<p>The above specifies the <code>lang</code> parameter to also load the CSS language<br>extension and the <code>skin</code> parameter to load the<br><a href="https://cdn.rawgit.com/google/code-prettify/master/styles/index.html#sunburst"><em>sunburst</em></a><br>skin.</p>
+<h2 id="Serving-your-own-JS-amp-CSS"><a href="#Serving-your-own-JS-amp-CSS" class="headerlink" title="Serving your own JS &amp; CSS"></a>Serving your own JS &amp; CSS</h2><p>You can<br><a href="https://github.com/google/code-prettify/raw/master/distrib/prettify-small.zip">download</a><br>the scripts and styles and serve them yourself.  Make sure to include both the<br>script and a stylesheet:</p>
+<pre><code class="HTML"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"prettify.css"</span>&gt;</span>
+<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"prettify.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+</code></pre>
+<p>Then run the <code>PR.prettyPrint()</code> function once your page has finished loading.<br>One way to do this is via the <code>onload</code> handler thus:</p>
+<pre><code class="HTML"><span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">"PR.prettyPrint()"</span>&gt;</span>
+</code></pre>
+<h2 id="Styling"><a href="#Styling" class="headerlink" title="Styling"></a>Styling</h2><p>The prettifier only adds <code>class</code>es; it does not specify exact colors or fonts,<br>so you can swap in a different stylesheet to change the way code is<br>prettified.</p>
+<p>The easiest way to create your own stylesheet is by starting with one from the<br><a href="https://cdn.rawgit.com/google/code-prettify/master/styles/index.html">style gallery</a><br>and tweaking it.</p>
+<p>You can use CSS <code>@media</code> rules to specify styles that work well with printers<br>(for example, dark text on a white background) when someone tries to print it.</p>
+<h2 id="Language-Hints"><a href="#Language-Hints" class="headerlink" title="Language Hints"></a>Language Hints</h2><p>Prettify makes a best effort to guess the language but works best with C-like<br>and HTML-like languages.  For others, there are special language handlers that<br>are chosen based on language hints.</p>
+<p>For example, set the <code>lang-scm</code> hint to specify that the code is Scheme code:</p>
+<pre><code class="HTML"><span class="tag">&lt;<span class="name">pre</span> <span class="attr">class</span>=<span class="string">"prettyprint lang-scm"</span>&gt;</span>(friends 'of '(parentheses))<span class="tag">&lt;/<span class="name">pre</span>&gt;</span>
+</code></pre>
+<p>It can also be specified as:</p>
+<pre><code class="HTML">&lt;?prettify lang=scm?&gt;
+<span class="tag">&lt;<span class="name">pre</span>&gt;</span>(friends 'of '(parentheses))<span class="tag">&lt;/<span class="name">pre</span>&gt;</span>
+</code></pre>
+<h2 id="Line-Numbering"><a href="#Line-Numbering" class="headerlink" title="Line Numbering"></a>Line Numbering</h2><pre><code class="HTML"><span class="tag">&lt;<span class="name">pre</span> <span class="attr">class</span>=<span class="string">"prettyprint linenums"</span>&gt;</span>
+Many
+lines
+of
+code
+<span class="tag">&lt;/<span class="name">pre</span>&gt;</span>
+</code></pre>
+<p>The <code>linenums</code> class in the above code tells the prettyprinter to insert an<br><code>&lt;ol&gt;</code> element and <code>&lt;li&gt;</code> elements around each line so that you get line<br>numbers.</p>
+<p>Most stylesheets then hide the line numbers except for every fifth line.</p>
+<p>The class <code>linenums:40</code> makes line numbering start at line 40 if you’re<br>excerpting a larger chunk of code.  The following also works:</p>
+<pre><code class="HTML">&lt;?prettify linenums=40?&gt;
+<span class="tag">&lt;<span class="name">pre</span>&gt;</span>lots of code<span class="tag">&lt;/<span class="name">pre</span>&gt;</span>
+</code></pre>

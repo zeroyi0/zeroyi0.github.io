@@ -1,0 +1,80 @@
+<h1 id="Known-Issues"><a href="#Known-Issues" class="headerlink" title="Known Issues"></a>Known Issues</h1><ul>
+<li>Perl formatting is really crappy. Partly because the author is lazy and partly<br>because Perl is <a href="http://www.perlmonks.org/?node_id=663393">hard</a> to parse.</li>
+<li>On some browsers, <code>&lt;code&gt;</code> elements with newlines in the text which use CSS<br>to specify <code>white-space:pre</code> will have the newlines improperly stripped if<br>the element is not attached to the document at the time the stripping is done.<br>Also, on IE6, all newlines will be stripped from <code>&lt;code&gt;</code> elements because<br>of the way IE6 produces <code>innerHTML</code>. Workaround: use <code>&lt;pre&gt;</code> for code with<br>newlines.</li>
+</ul>
+<h1 id="Change-Log"><a href="#Change-Log" class="headerlink" title="Change Log"></a>Change Log</h1><h2 id="29-March-2007"><a href="#29-March-2007" class="headerlink" title="29 March 2007"></a>29 March 2007</h2><ul>
+<li>Added <a href="https://rawgit.com/google/code-prettify/master/tests/prettify_test.html#PHP">tests</a><br>for PHP support to address issue <a href="https://github.com/google/code-prettify/issues/3">#3</a>.</li>
+<li>Fixed bug <a href="https://github.com/google/code-prettify/issues/6">#6</a>: <code>prettyPrintOne</code><br>was not halting. This was not reachable through the normal entry point.</li>
+<li>Fixed bug <a href="https://github.com/google/code-prettify/issues/4">#4</a>: recursing into a<br>script block or PHP tag that was not properly closed would not silently drop the content.<br>(<a href="https://rawgit.com/google/code-prettify/master/tests/prettify_test.html#issue4">test</a>)</li>
+<li>Fixed bug <a href="https://github.com/google/code-prettify/issues/8">#8</a>: was eating tabs<br>(<a href="https://rawgit.com/google/code-prettify/master/tests/prettify_test.html#issue8">test</a>)</li>
+<li><p>Fixed entity handling so that the caveat</p>
+<blockquote>
+<p>Caveats: please properly escape less-thans. <code>x&amp;lt;y</code> instead of <code>x&lt;y</code>,<br>and use <code>&quot;</code> instead of <code>&amp;quot;</code> for string delimiters.</p>
+</blockquote>
+<p>is no longer applicable.</p>
+</li>
+<li>Added <em>noisefree</em>‘s C# patch <a href="https://github.com/google/code-prettify/issues/7">#7</a></li>
+<li>Added a <a href="http://google-code-prettify.googlecode.com/files/prettify-small.zip">distribution</a><br>that has comments and whitespace removed to reduce download size from 45.5kB<br>to 12.8kB.</li>
+</ul>
+<h2 id="4-Jul-2008"><a href="#4-Jul-2008" class="headerlink" title="4 Jul 2008"></a>4 Jul 2008</h2><ul>
+<li>Added <a href="https://github.com/google/code-prettify/issues/17">#17</a> language specific<br>formatters that are triggered by the presence of a <code>lang-&lt;language-file-extension&gt;</code></li>
+<li>Fixed bug <a href="https://github.com/google/code-prettify/issues/29">#29</a>: python<br>handling of <code>&#39;&#39;&#39;string&#39;&#39;&#39;</code></li>
+<li>Fixed bug: <code>/</code> in regex <code>[charsets] should not end regex</code></li>
+</ul>
+<h2 id="5-Jul-2008"><a href="#5-Jul-2008" class="headerlink" title="5 Jul 2008"></a>5 Jul 2008</h2><ul>
+<li>Defined language extensions for Lisp and Lua</li>
+</ul>
+<h2 id="14-Jul-2008"><a href="#14-Jul-2008" class="headerlink" title="14 Jul 2008"></a>14 Jul 2008</h2><ul>
+<li>Language handlers for F#, OCAML, SQL</li>
+<li>Support for <code>nocode</code> spans to allow embedding of line numbers and code<br>annotations which should not be styled or otherwise affect the tokenization<br>of prettified code. See the issue <a href="https://github.com/google/code-prettify/issues/22">#22</a><br><a href="https://rawgit.com/google/code-prettify/master/tests/prettify_test.html#issue22">testcase</a>.</li>
+</ul>
+<h2 id="6-Jan-2009"><a href="#6-Jan-2009" class="headerlink" title="6 Jan 2009"></a>6 Jan 2009</h2><ul>
+<li>Language handlers for Visual Basic, Haskell, CSS, and WikiText</li>
+<li>Added <code>.mxml</code> extension to the markup style handler for<br>Flex <a href="http://en.wikipedia.org/wiki/MXML">MXML files</a>.<br>See issue <a href="https://github.com/google/code-prettify/issues/37">#37</a>.</li>
+<li>Added <code>.m</code> extension to the C style handler so that Objective C source files<br>properly highlight. See issue <a href="https://github.com/google/code-prettify/issues/58">#58</a>.</li>
+<li>Changed HTML lexer to use the same embedded source mechanism as the wiki<br>language handler, and changed to use the registered CSS handler for STYLE<br>element content.</li>
+</ul>
+<h2 id="21-May-2009"><a href="#21-May-2009" class="headerlink" title="21 May 2009"></a>21 May 2009</h2><ul>
+<li>Rewrote to improve performance on large files.<br>See <a href="http://mikesamuel.blogspot.com/2009/05/efficient-parsing-in-javascript.html">benchmarks</a>.</li>
+<li>Fixed bugs with highlighting of Haskell line comments, Lisp number literals,<br>Lua strings, C preprocessor directives, newlines in Wiki code on Windows, and<br>newlines in IE6.</li>
+</ul>
+<h2 id="14-August-2009"><a href="#14-August-2009" class="headerlink" title="14 August 2009"></a>14 August 2009</h2><ul>
+<li>Fixed prettifying of <code>&lt;code&gt;</code> blocks with embedded newlines.</li>
+</ul>
+<h2 id="3-October-2009"><a href="#3-October-2009" class="headerlink" title="3 October 2009"></a>3 October 2009</h2><ul>
+<li>Fixed prettifying of XML/HTML tags that contain uppercase letters.</li>
+</ul>
+<h2 id="19-July-2010"><a href="#19-July-2010" class="headerlink" title="19 July 2010"></a>19 July 2010</h2><ul>
+<li>Added support for line numbers. Bug <a href="https://github.com/google/code-prettify/issues/22">#22</a></li>
+<li>Added YAML support. Bug <a href="https://github.com/google/code-prettify/issues/123">#123</a></li>
+<li>Added VHDL support courtesy <em>Le Poussin</em>.</li>
+<li>IE performance improvements. Bug <a href="https://github.com/google/code-prettify/issues/102">#102</a><br>courtesy <em>jacobly</em>.</li>
+<li>A variety of markup formatting fixes courtesy <em>smain</em> and <em>thezbyg</em>.</li>
+<li>Fixed copy and paste in IE 6, 7, 8.</li>
+<li>Changed output to use <code>&amp;#160;</code> instead of <code>&amp;nbsp;</code> so that the output works<br>when embedded in XML. Bug <a href="https://github.com/google/code-prettify/issues/108">#108</a>.</li>
+</ul>
+<h2 id="7-September-2010"><a href="#7-September-2010" class="headerlink" title="7 September 2010"></a>7 September 2010</h2><ul>
+<li>Added support for coffeescript courtesy <em>Cezary Bartoszuk</em>.</li>
+</ul>
+<h2 id="4-March-2011"><a href="#4-March-2011" class="headerlink" title="4 March 2011"></a>4 March 2011</h2><ul>
+<li>Added a <a href="https://rawgit.com/google/code-prettify/master/styles/index.html">themes gallery</a><br>to showcase contributed styles.</li>
+<li>Added support for XQuery courtesy <em>Patrick Wied</em>, Nemerle courtesy <em>Zimin A.V.</em>,<br>and Latex support courtesy <em>Martin S</em>.</li>
+</ul>
+<h2 id="29-March-2011"><a href="#29-March-2011" class="headerlink" title="29 March 2011"></a>29 March 2011</h2><ul>
+<li>Fixed IE newline issues, and copying/pasting of prettified source code from IE.<br>This required significant internal changes but involves no API changes.<br><strong>Caveat</strong>: <code>prettyPrintOne</code> injects the HTML passed to it into a <code>&lt;pre&gt;</code> element.<br>If the HTML comes from a trusted source, this may allow XSS. Do not do this.<br>This should not be a problem for existing apps since the standard usage is to<br>rewrite the HTML and then inject it, so anyone doing that with untrusted HTML<br>already has an XSS vulnerability. If you sanitize and prettify HTML from an<br>untrusted source, sanitize first.</li>
+</ul>
+<h2 id="4-February-2013"><a href="#4-February-2013" class="headerlink" title="4 February 2013"></a>4 February 2013</h2><ul>
+<li>Language handlers for Dart, Erlang, Mumps, TCL, R, S., and others</li>
+<li>Bug fix: VB REM style comments.</li>
+<li>Bug fix: CSS color literals / ID selector confusion.</li>
+<li>Bug fix: IE8 line breaks.</li>
+</ul>
+<h2 id="24-February-2013"><a href="#24-February-2013" class="headerlink" title="24 February 2013"></a>24 February 2013</h2><ul>
+<li>Added a one script autoload&amp;run mechanism and a way to embed hints in<br>processing instructions/comments. See<br><a href="https://rawgit.com/google/code-prettify/master/examples/quine.html">example</a>.</li>
+</ul>
+<h2 id="4-March-2013"><a href="#4-March-2013" class="headerlink" title="4 March 2013"></a>4 March 2013</h2><ul>
+<li>Matlab language handler courtesy <em>Amro³</em></li>
+</ul>
+<h2 id="28-Apr-2015"><a href="#28-Apr-2015" class="headerlink" title="28 Apr 2015"></a>28 Apr 2015</h2><ul>
+<li>Migrated to Github</li>
+</ul>

@@ -1,0 +1,90 @@
+<h1 id="JavaScript-code-prettifier"><a href="#JavaScript-code-prettifier" class="headerlink" title="JavaScript code prettifier"></a>JavaScript code prettifier</h1><p>An embeddable script that makes source-code snippets in HTML prettier.</p>
+<ul>
+<li>Works on HTML pages.</li>
+<li>Works even if code contains embedded links, line numbers, etc.</li>
+<li>Simple API: include some JS &amp; CSS and add an onload handler.</li>
+<li>Lightweights: small download and does not block page from loading while<br>running.</li>
+<li>Customizable styles via CSS. See the <a href="https://rawgit.com/google/code-prettify/master/styles/index.html">themes gallery</a>.</li>
+<li>Supports all C-like, Bash-like, and XML-like languages. No need to specify<br>the language.</li>
+<li>Extensible language handlers for other languages. You can specify the<br>language.</li>
+<li>Widely used with good cross-browser support. Powers <a href="https://code.google.com/">https://code.google.com/</a><br>and <a href="http://stackoverflow.com/">http://stackoverflow.com/</a></li>
+</ul>
+<p><a href="https://rawgit.com/google/code-prettify/master/examples/quine.html">See an example</a>.</p>
+<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><ul>
+<li>Include the script tag below in your document:<pre><code class="HTML"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+</code></pre>
+</li>
+<li>See <a href="docs/getting_started.md">Getting Started</a> to configure that URL with<br>options you need.</li>
+<li>Look at the <a href="https://rawgit.com/google/code-prettify/master/styles/index.html">skin gallery</a> and pick styles that suit you.</li>
+</ul>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>Put code snippets in <code>&lt;pre class=&quot;prettyprint&quot;&gt;...&lt;/pre&gt;</code> or<br><code>&lt;code class=&quot;prettyprint&quot;&gt;...&lt;/code&gt;</code> and it will automatically be<br>pretty-printed.</p>
+<pre><code class="HTML"><span class="tag">&lt;<span class="name">pre</span> <span class="attr">class</span>=<span class="string">"prettyprint"</span>&gt;</span>class Voila {
+public:
+  // Voila
+  static const string VOILA = "Voila";
+
+  // will not interfere with embedded <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#voila2"</span>&gt;</span>tags<span class="tag">&lt;/<span class="name">a</span>&gt;</span>.
+}<span class="tag">&lt;/<span class="name">pre</span>&gt;</span>
+</code></pre>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h3 id="For-which-languages-does-it-work"><a href="#For-which-languages-does-it-work" class="headerlink" title="For which languages does it work?"></a>For which languages does it work?</h3><p>The comments in <code>prettify.js</code> are authoritative but the lexer should work on a<br>number of languages including C and friends, Java, Python, Bash, SQL, HTML,<br>XML, CSS, JavaScript, Makefile, and Rust.</p>
+<p>It works passably on Ruby, PHP, VB, and Awk and a decent subset of Perl and<br>Ruby, but because of commenting conventions, doesn’t work on Smalltalk, OCaml,<br>etc. without a language extension.</p>
+<p>Other languages are supported via extensions:</p>
+<p><a href="src/lang-apollo.js">Apollo</a>;<br><a href="src/lang-basic.js">Basic</a>;<br><a href="src/lang-clj.js">Clojure</a>;<br><a href="src/lang-css.js">CSS</a>;<br><a href="src/lang-dart.js">Dart</a>;<br><a href="src/lang-erlang.js">Erlang</a>;<br><a href="src/lang-go.js">Go</a>;<br><a href="src/lang-hs.js">Haskell</a>;<br><a href="src/lang-lasso.js">Lasso</a>;<br><a href="src/lang-lisp.js">Lisp, Scheme</a>;<br><a href="src/lang-llvm.js">LLVM</a>;<br><a href="src/lang-logtalk.js">Logtalk</a>;<br><a href="src/lang-lua.js">Lua</a>;<br><a href="src/lang-matlab.js">MATLAB</a>;<br><a href="src/lang-ml.js">MLs: F#, Ocaml,SML</a>;<br><a href="src/lang-mumps.js">Mumps</a>;<br><a href="src/lang-n.js">Nemerle</a>;<br><a href="src/lang-pascal.js">Pascal</a>;<br><a href="src/lang-proto.js">Protocol buffers</a>;<br><a href="src/lang-r.js">R, S</a>;<br><a href="src/lang-rd.js">RD</a>;<br><a href="src/lang-rust.js">Rust</a>;<br><a href="src/lang-scala.js">Scala</a>;<br><a href="src/lang-sql.js">SQL</a>;<br><a href="src/lang-swift.js">Swift</a>;<br><a href="src/lang-tcl.js">TCL</a>;<br><a href="src/lang-tex.js">LaTeX</a>;<br><a href="src/lang-vb.js">Visual Basic</a>;<br><a href="src/lang-vhdl.js">VHDL</a>;<br><a href="src/lang-wiki.js">Wiki</a>;<br><a href="src/lang-xq.js">XQ</a>;<br><a href="src/lang-yaml.js">YAML</a></p>
+<p>If you’d like to add an extension for your favorite language, please look at<br><code>src/lang-lisp.js</code> and submit a pull request.</p>
+<h3 id="How-do-I-specify-the-language-of-my-code"><a href="#How-do-I-specify-the-language-of-my-code" class="headerlink" title="How do I specify the language of my code?"></a>How do I specify the language of my code?</h3><p>You don’t need to specify the language since <code>PR.prettyPrint()</code> will guess.<br>You can specify a language by specifying the language extension along with the<br><code>prettyprint</code> class:</p>
+<pre><code class="HTML"><span class="tag">&lt;<span class="name">pre</span> <span class="attr">class</span>=<span class="string">"prettyprint lang-html"</span>&gt;</span>
+  The lang-* class specifies the language file extensions.
+  File extensions supported by default include:
+    "bsh", "c", "cc", "cpp", "cs", "csh", "cyc", "cv", "htm", "html", "java",
+    "js", "m", "mxml", "perl", "pl", "pm", "py", "rb", "sh", "xhtml", "xml",
+    "xsl".
+<span class="tag">&lt;/<span class="name">pre</span>&gt;</span>
+</code></pre>
+<p>You may also use the <a href="http://dev.w3.org/html5/spec-author-view/the-code-element.html#the-code-element">HTML 5</a> convention of embedding a <code>&lt;code&gt;</code> element<br>inside the <code>&lt;pre&gt;</code> and using <code>language-java</code> style classes:</p>
+<pre><code class="HTML"><span class="tag">&lt;<span class="name">pre</span> <span class="attr">class</span>=<span class="string">"prettyprint"</span>&gt;</span><span class="tag">&lt;<span class="name">code</span> <span class="attr">class</span>=<span class="string">"language-java"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">code</span>&gt;</span><span class="tag">&lt;/<span class="name">pre</span>&gt;</span>
+</code></pre>
+<h3 id="It-doesn’t-work-on-“obfuscated-code-sample”"><a href="#It-doesn’t-work-on-“obfuscated-code-sample”" class="headerlink" title="It doesn’t work on “obfuscated code sample”?"></a>It doesn’t work on “obfuscated code sample”?</h3><p>Yes. Prettifying obfuscated code is like putting lipstick on a pig &mdash;<br>i.e. outside the scope of this tool.</p>
+<h3 id="Which-browsers-does-it-work-with"><a href="#Which-browsers-does-it-work-with" class="headerlink" title="Which browsers does it work with?"></a>Which browsers does it work with?</h3><p>It’s been tested with IE 6, Firefox 1.5 &amp; 2, and Safari 2.0.4. Look at<br><a href="https://rawgit.com/google/code-prettify/master/tests/prettify_test.html">the tests</a> to see if it works in your browser.</p>
+<h3 id="What’s-changed"><a href="#What’s-changed" class="headerlink" title="What’s changed?"></a>What’s changed?</h3><p>See the <a href="CHANGES.md">changelog</a>.</p>
+<h3 id="Why-doesn’t-Prettyprinting-of-strings-work-on-WordPress"><a href="#Why-doesn’t-Prettyprinting-of-strings-work-on-WordPress" class="headerlink" title="Why doesn’t Prettyprinting of strings work on WordPress?"></a>Why doesn’t Prettyprinting of strings work on WordPress?</h3><p>Apparently wordpress does “smart quoting” which changes close quotes.  This<br>causes end quotes to not match up with open quotes.</p>
+<p>This breaks prettifying as well as copying and pasting of code samples.  See<br><a href="http://wordpress.org/support/topic/125038">WordPress’s help center</a> for info on how to stop smart quoting of code<br>snippets.</p>
+<h3 id="How-do-I-put-line-numbers-in-my-code"><a href="#How-do-I-put-line-numbers-in-my-code" class="headerlink" title="How do I put line numbers in my code?"></a>How do I put line numbers in my code?</h3><p>You can use the <code>linenums</code> class to turn on line numbering.  If your code<br>doesn’t start at line number <code>1</code>, you can add a colon and a line number to the<br>end of that class as in <code>linenums:52</code>. For example:</p>
+<pre><code class="HTML"><span class="tag">&lt;<span class="name">pre</span> <span class="attr">class</span>=<span class="string">"prettyprint linenums:4"</span></span>
+<span class="tag">&gt;</span>// This is line 4.
+foo();
+bar();
+baz();
+boo();
+far();
+faz();
+<span class="tag">&lt;/<span class="name">pre</span>&gt;</span>
+</code></pre>
+<h3 id="How-do-I-prevent-a-portion-of-markup-from-being-marked-as-code"><a href="#How-do-I-prevent-a-portion-of-markup-from-being-marked-as-code" class="headerlink" title="How do I prevent a portion of markup from being marked as code?"></a>How do I prevent a portion of markup from being marked as code?</h3><p>You can use the <code>nocode</code> class to identify a span of markup that is not code:</p>
+<pre><code class="HTML"><span class="tag">&lt;<span class="name">pre</span> <span class="attr">class</span>=<span class="string">"prettyprint"</span>&gt;</span>
+int x = foo();  /* This is a comment  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"nocode"</span>&gt;</span>This is not code<span class="tag">&lt;/<span class="name">span</span>&gt;</span>
+  Continuation of comment */
+int y = bar();
+<span class="tag">&lt;/<span class="name">pre</span>&gt;</span>
+</code></pre>
+<p>For a more complete example see the <a href="https://rawgit.com/google/code-prettify/master/tests/prettify_test.html#issue22">issue #22 testcase</a>.</p>
+<h3 id="I-get-an-error-message-“a-is-not-a-function”-or-“opt-whenDone-is-not-a-function”"><a href="#I-get-an-error-message-“a-is-not-a-function”-or-“opt-whenDone-is-not-a-function”" class="headerlink" title="I get an error message “a is not a function” or “opt_whenDone is not a function”"></a>I get an error message “a is not a function” or “opt_whenDone is not a function”</h3><p>If you are calling <code>prettyPrint</code> via an event handler, wrap it in a function.<br>Instead of doing:</p>
+<pre><code class="JavaScript">addEventListener(<span class="string">'load'</span>, PR.prettyPrint, <span class="literal">false</span>);
+</code></pre>
+<p>wrap it in a closure like:</p>
+<pre><code class="JavaScript">addEventListener(<span class="string">'load'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{ PR.prettyPrint(); }, <span class="literal">false</span>);
+</code></pre>
+<p>so that the browser does not pass an event object to <code>PR.prettyPrint</code><br>which will confuse it.</p>
+<h3 id="How-can-I-customize-the-colors-and-styles-of-my-code"><a href="#How-can-I-customize-the-colors-and-styles-of-my-code" class="headerlink" title="How can I customize the colors and styles of my code?"></a>How can I customize the colors and styles of my code?</h3><p>Prettify adds <code>&lt;span&gt;</code> with <code>class</code>es describing the kind of code.  You can<br>create CSS styles to matches these classes.</p>
+<p>See the <a href="https://rawgit.com/google/code-prettify/master/styles/index.html">theme gallery</a> for examples.</p>
+<h3 id="I-can’t-add-classes-to-my-code-because-it-comes-from-Markdown-etc"><a href="#I-can’t-add-classes-to-my-code-because-it-comes-from-Markdown-etc" class="headerlink" title="I can’t add classes to my code (because it comes from Markdown, etc.)"></a>I can’t add classes to my code (because it comes from Markdown, etc.)</h3><p>Instead of <code>&lt;pre class=&quot;prettyprint ...&quot;&gt;</code> you can use a comment or processing<br>instructions that survives processing instructions: <code>&lt;?prettify ...?&gt;</code> works<br>as explained in <a href="docs/getting_started.md">Getting Started</a>.</p>
+<h3 id="How-can-I-put-line-numbers-on-every-line-instead-of-just-every-fifth-line"><a href="#How-can-I-put-line-numbers-on-every-line-instead-of-just-every-fifth-line" class="headerlink" title="How can I put line numbers on every line instead of just every fifth line?"></a>How can I put line numbers on every line instead of just every fifth line?</h3><p>Prettify puts lines into an HTML list element so that line numbers aren’t<br>caught by copy/paste, and the line numbering is controlled by CSS in the<br>default stylesheet, <code>prettify.css</code>.</p>
+<p>The following should turn line numbering back on for the other lines:</p>
+<pre><code class="HTML"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span>
+<span class="undefined">li.L0, li.L1, li.L2, li.L3,</span>
+<span class="undefined">li.L5, li.L6, li.L7, li.L8 {</span>
+<span class="undefined">  list-style-type: decimal !important;</span>
+<span class="undefined">}</span>
+<span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span>
+</code></pre>
+<h2 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h2><p>Please use the official <a href="http://groups.google.com/group/js-code-prettifier">support group</a> for discussions, suggestions, and<br>general feedback.</p>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p><a href="COPYING">Apache License 2.0</a></p>

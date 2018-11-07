@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+	<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+	<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="旅丶">	
+    
+    
+    
+    
+    
+    
+    <title>log4j使用教程 | Welcome to the World</title>
+    <link href="”http://yoursite.com“" rel="”prefetch”">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head></html>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="http://yoursite.com" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://yoursite.com">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">Welcome to the World</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/categories">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/Mybatis/">Mybatis</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Mapper/">Mapper</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Thread/">Thread</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://yoursite.com">Welcome to the World</a>
+        >
+        <span>log4j使用教程</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/11/07/log4j使用教程/">log4j使用教程</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-11-07
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2018/11/07/log4j使用教程/">log4j使用教程</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-11-07
+            </p>
+            <p>
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p> Log4j 日志的四个级别 ，优先级从高到低分别是 ERROR 、 WARN 、 INFO 、 DEBUG</p>
+<p>=========================================================================</p>
+<h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><p>log4j.rootLogger = debug,D,E</p>
+<h3 id="输出信息到控制抬"><a href="#输出信息到控制抬" class="headerlink" title="输出信息到控制抬"></a>输出信息到控制抬</h3><p>log4j.appender.stdout = org.apache.log4j.ConsoleAppender<br>log4j.appender.stdout.Target = System.out<br>log4j.appender.stdout.layout = org.apache.log4j.PatternLayout<br>log4j.appender.stdout.layout.ConversionPattern = %d{yyyy-MM-dd HH:mm:ss} - [ %p ]  %m%n</p>
+<h3 id="输出DEBUG-级别以上的日志到-D-logs-debug-log"><a href="#输出DEBUG-级别以上的日志到-D-logs-debug-log" class="headerlink" title="输出DEBUG 级别以上的日志到=D://logs/debug.log"></a>输出DEBUG 级别以上的日志到=D://logs/debug.log</h3><p>log4j.appender.D = org.apache.log4j.RollingFileAppender<br>log4j.appender.D.File = D://logs/debug.log<br>log4j.appender.D.Append = true<br>log4j.appender.D.Threshold = DEBUG<br>log4j.appender.D.MaxFileSize=100KB<br>log4j.appender.D.MaxBackupIndex=2<br>log4j.appender.D.layout = org.apache.log4j.PatternLayout<br>log4j.appender.D.layout.ConversionPattern = %d{yyyy-MM-dd HH:mm:ss} - [ %p ]  %m%n</p>
+<h3 id="输出ERROR-级别以上的日志到-D-logs-error-log"><a href="#输出ERROR-级别以上的日志到-D-logs-error-log" class="headerlink" title="输出ERROR 级别以上的日志到=D://logs/error.log"></a>输出ERROR 级别以上的日志到=D://logs/error.log</h3><p>log4j.appender.E = org.apache.log4j.DailyRollingFileAppender<br>log4j.appender.E.File =D://logs/error<br>log4j.appender.E.Append = true<br>log4j.appender.E.Threshold = ERROR<br>log4j.appender.E.DatePattern=’-‘yyyy-MM-dd-HH-mm’.log’<br>log4j.appender.E.layout = org.apache.log4j.PatternLayout</p>
+<h1 id="log4j-appender-E-layout-ConversionPattern-d-yyyy-MM-dd-HH-mm-ss-p-m-n"><a href="#log4j-appender-E-layout-ConversionPattern-d-yyyy-MM-dd-HH-mm-ss-p-m-n" class="headerlink" title="log4j.appender.E.layout.ConversionPattern = %d{yyyy-MM-dd HH:mm:ss} - [ %p ]  %m%n"></a>log4j.appender.E.layout.ConversionPattern = %d{yyyy-MM-dd HH:mm:ss} - [ %p ]  %m%n</h1><p>##logger是进行记录的主要类，appender是记录的方式,layout是记录的格式</p>
+<p>#Logger - 日志写出器，供程序员输出日志信息 </p>
+<p>#Appender - 日志目的地，把格式化好的日志信息输出到指定的地方去 </p>
+<p>#ConsoleAppender - 目的地为控制台的Appender </p>
+<p>#FileAppender - 目的地为文件的Appender </p>
+<p>#RollingFileAppender - 目的地为大小受限的文件的Appender </p>
+<p>#Layout - 日志格式化器，用来把程序员的logging request格式化成字符串 </p>
+<p>#PatternLayout - 用指定的pattern格式化logging request的Layou</p>
+<p>#Log4j提供的appender有以下几种：</p>
+<p>#　　org.apache.log4j.ConsoleAppender（控制台），</p>
+<p>#　　org.apache.log4j.FileAppender（文件），</p>
+<p>#　　org.apache.log4j.DailyRollingFileAppender（每天产生一个日志文件），</p>
+<p>#　　org.apache.log4j.RollingFileAppender（文件大小到达指定尺寸的时候产生一个新的文件），</p>
+<p>#　　org.apache.log4j.WriterAppender（将日志信息以流格式发送到任意指定的地方）</p>
+<p>#Log4j提供的layout有以下几种：</p>
+<p>#　　org.apache.log4j.HTMLLayout（以HTML表格形式布局），</p>
+<p>#　　org.apache.log4j.PatternLayout（可以灵活地指定布局模式），</p>
+<p>#　　org.apache.log4j.SimpleLayout（包含日志信息的级别和信息字符串），</p>
+<p>#　　org.apache.log4j.TTCCLayout（包含日志产生的时间、线程、类别等等信息）</p>
+<p>#Log4J，打印参数如下</p>
+<h1 id=""><a href="#" class="headerlink" title=" "></a> </h1><p>%m 输出代码中指定的消息</p>
+<h1 id="-1"><a href="#-1" class="headerlink" title=" "></a> </h1><p>%M 输出日志发生的方法名</p>
+<p>#　　<br>%p 输出优先级，即<br>DEBUG，INFO，WARN，ERROR，FATAL</p>
+<p>#　　<br>%r 输出自应用启动到输出该log信息耗费的毫秒数</p>
+<p>#　　<br>%c 输出所属的类目，通常就是所在类的全名</p>
+<p>#　　<br>%t 输出产生该日志事件的线程名</p>
+<p>#　　<br>%n 输出一个回车换行符，Windows平台为“rn”，Unix平台为“n”</p>
+<p>#　　<br>%d 输出日志时间点的日期或时间，默认格式为ISO8601，也可以在其后指定格式，比如：%d{yyyy MMM dd HH:mm:ss,SSS}，输出类似：2002年10月18日 22：10：28，921<br>#<br>%l 输出日志事件的发生位置，包括类目名、发生的线程，以及在代码中的行数。举例：Testlog4.main(TestLog4.java:10)</p>
+<h1 id="-2"><a href="#-2" class="headerlink" title=" "></a> </h1><p>%L 输出日志发生的位置</p>
+<h1 id="-3"><a href="#-3" class="headerlink" title=" "></a> </h1><p>%F 输出类名</p>
+<p>RollingFileAppender<br>MaxFileSize=100KB: 后缀可以是KB, MB 或者是 GB. 在日志文件到达该大小时，将会自动滚动，即将原来的内容移到mylog.log.1文件。<br>MaxBackupIndex=2:指定可以产生的滚动文件的最大数。</p>
+<p>DailyRollingFileAppender可选值有6个：</p>
+<ul>
+<li>‘.’yyyy-MM,对应monthly(每月)</li>
+<li>‘.’yyyy-ww,对应weekly(每周)</li>
+<li>‘.’yyyy-MM-dd,对应daily(每天)</li>
+<li>‘.’yyyy-MM-dd-a,对应half-daily(每半天)</li>
+<li>‘.’yyyy-MM-dd-HH,对应hourly(每小时)</li>
+<li>‘.’yyyy-MM-dd-HH-mm,对应minutely(每分钟)</li>
+</ul>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get" action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            旅丶
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140" alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/07/多线程锁的安全性/">多线程锁的安全性</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/07/log4j使用教程/">log4j使用教程</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/06/Mybatis使用Mapper代理/">Mybatis</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/06/多线程/">多线程</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/06/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/06/Mybatis使用Mapper代理/">Mybatis</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/06/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/06/多线程/">多线程</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/07/log4j使用教程/">log4j使用教程</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/07/多线程锁的安全性/">多线程锁的安全性</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+                <li class="">
+                    <a href="/2018/11/07/log4j使用教程/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                <li class="">
+                    <a href="/2018/11/07/log4j使用教程/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                <li class="">
+                    <a href="/2018/11/07/log4j使用教程/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/Mybatis/" style="font-size: 9.758468697342074px;" class="tag-cloud-link">Mybatis</a>
+    
+    <a href="/tags/Mapper/" style="font-size: 16.006296948108783px;" class="tag-cloud-link">Mapper</a>
+    
+    <a href="/tags/Thread/" style="font-size: 11.58210697623526px;" class="tag-cloud-link">Thread</a>
+    
+    <a href="/tags/多线程/" style="font-size: 9.342985031259124px;" class="tag-cloud-link">多线程</a>
+    
+    <a href="/tags/thread/" style="font-size: 12.993856311465393px;" class="tag-cloud-link">thread</a>
+    
+</div>
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <script src="/plugins/prettify/src/prettify.js"></script>
+<script type="text/javascript">
+ hljs.initHighlightingOnLoad();
+</script>
+<footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 旅丶 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
+
+
+
+</html>
