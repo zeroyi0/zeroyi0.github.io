@@ -12,7 +12,7 @@
     
     
     
-    <title>多线程 | Welcome to the World</title>
+    <title>多线程等待和唤醒 | Welcome to the World</title>
     <link href="”http://yoursite.com“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -185,13 +185,13 @@
         <i class="fa fa-home"></i>
         <a href="http://yoursite.com">Welcome to the World</a>
         >
-        <span>多线程</span>
+        <span>多线程等待和唤醒</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2018/11/06/多线程/">多线程</a>
+                <a href="/2018/11/08/多线程等待和唤醒/">多线程等待和唤醒</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -206,7 +206,7 @@
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2018-11-06
+                <i class="fa fa-calendar"></i> 2018-11-08
             </span>
             
         </div>
@@ -216,11 +216,11 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2018/11/06/多线程/">多线程</a>
+                    <a href="/2018/11/08/多线程等待和唤醒/">多线程等待和唤醒</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2018-11-06
+                <i class="fa fa-calendar"></i> 2018-11-08
             </p>
             <p>
                 
@@ -236,39 +236,23 @@
         </center>
     </div>
     <div class="content-article">
-        <h3 id="什么是线程"><a href="#什么是线程" class="headerlink" title="什么是线程"></a>什么是线程</h3><ul>
-<li><h5 id="应用：一个应用可包含多个进程"><a href="#应用：一个应用可包含多个进程" class="headerlink" title="应用：一个应用可包含多个进程"></a>应用：一个应用可包含多个进程</h5></li>
-<li><h5 id="进程：一个进程至少包含一个线程"><a href="#进程：一个进程至少包含一个线程" class="headerlink" title="进程：一个进程至少包含一个线程"></a>进程：一个进程至少包含一个线程</h5></li>
-<li><h5 id="线程：进程中执行的路径"><a href="#线程：进程中执行的路径" class="headerlink" title="线程：进程中执行的路径"></a>线程：进程中执行的路径</h5></li>
+        <h3 id="Object的方法"><a href="#Object的方法" class="headerlink" title="Object的方法"></a><code>Object</code>的方法</h3><ul>
+<li><code>notify()</code> 唤醒一个处在线程池中的线程</li>
+<li><code>notifyAll()</code> 唤醒线程池中的所有线程</li>
+<li><code>wait()</code> 当前线程进入线程池</li>
 </ul>
-<h3 id="线程的状态"><a href="#线程的状态" class="headerlink" title="线程的状态"></a>线程的状态</h3><ul>
-<li><h5 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h5></li>
-<li><h5 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h5></li>
-<li><h5 id="冻结"><a href="#冻结" class="headerlink" title="冻结"></a>冻结</h5></li>
-<li><h5 id="消亡"><a href="#消亡" class="headerlink" title="消亡"></a>消亡</h5><img src="/多线程/20181106115458585.png" alt=""></li>
-</ul>
-<h3 id="如何创建一个线程"><a href="#如何创建一个线程" class="headerlink" title="如何创建一个线程"></a>如何创建一个线程</h3><ul>
-<li>继承<code>Thread</code>类</li>
-<li>重写<code>run</code>方法</li>
-<li>调用<code>start</code>方法启动线程</li>
-</ul>
-<blockquote>
-<p>一个线程只能被开启一次</p>
+<h3 id="sleep-和wait-的区别"><a href="#sleep-和wait-的区别" class="headerlink" title="sleep()和wait()的区别"></a>sleep()和wait()的区别</h3><blockquote>
+<p>① sleep是Thread类的静态方法。sleep的作用是让线程休眠制定的时间，sleep将在接到时间到达时恢复线程执行; wait是Object的方法，也就是说可以对任意一个对象调用wait方法，调用wait方法将会将调用者的线程挂起，直到其他线程调用同一个对象的notify方法才会重新激活调用者。</p>
 </blockquote>
-<h4 id="多线程情况下操作共享数据，导致线程不安全-需对共享数据进行同步"><a href="#多线程情况下操作共享数据，导致线程不安全-需对共享数据进行同步" class="headerlink" title="多线程情况下操作共享数据，导致线程不安全,需对共享数据进行同步"></a>多线程情况下操作共享数据，导致线程不安全,需对共享数据进行同步</h4><ul>
-<li><p>加锁可以避免安全问题，但将降低效率</p>
-</li>
-<li><p>在多核情况下仍会造成数据不安全的问题，同一时刻可以执行多个线程</p>
-</li>
-<li><p>锁代码块中不要出现死循环，否则将导致锁无法被释放</p>
-</li>
-</ul>
-<h5 id="同步代码块"><a href="#同步代码块" class="headerlink" title="同步代码块"></a>同步代码块</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Object obj = <span class="keyword">new</span> Object();</span><br><span class="line">	</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (ticket &gt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			sleep(<span class="number">10L</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//同步锁</span></span><br><span class="line">		<span class="keyword">synchronized</span> (obj) &#123;</span><br><span class="line">			System.out.println(getName() + <span class="string">"卖第"</span> + ticket-- + <span class="string">"张票"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="同步函数"><a href="#同步函数" class="headerlink" title="同步函数"></a>同步函数</h5><ul>
-<li>修饰普通方法时用的为 <code>this</code> 锁</li>
-<li>修饰静态方法时用的 <code>.class</code> 锁</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (ticket &gt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			sleep(<span class="number">10L</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(getName() + <span class="string">"卖第"</span> + ticket-- + <span class="string">"张票"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>② sleep方法没有释放锁，而wait方法释放了锁，使得其他线程可以使用同步控制块或者方法。</p>
+</blockquote>
+<blockquote>
+<p>③ wait，notify和notifyAll只能在同步控制方法或者同步控制块里面使用，而sleep可以在任何地方使用</p>
+</blockquote>
+<blockquote>
+<p>④ sleep必须捕获异常，而wait，notify和notifyAll不需要捕获异常</p>
+</blockquote>
 
     </div>
 </article>
@@ -423,27 +407,27 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/2018/11/06/多线程/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2018/11/08/多线程等待和唤醒/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/2018/11/06/多线程/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2018/11/08/多线程等待和唤醒/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/2018/11/06/多线程/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2018/11/08/多线程等待和唤醒/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/Mybatis/" style="font-size: 18.82669358383619px;" class="tag-cloud-link">Mybatis</a>
+    <a href="/tags/Mybatis/" style="font-size: 19.82966097466333px;" class="tag-cloud-link">Mybatis</a>
     
-    <a href="/tags/Mapper/" style="font-size: 16.947391064167054px;" class="tag-cloud-link">Mapper</a>
+    <a href="/tags/Mapper/" style="font-size: 12.444124168628452px;" class="tag-cloud-link">Mapper</a>
     
-    <a href="/tags/thread/" style="font-size: 13.986447080665268px;" class="tag-cloud-link">thread</a>
+    <a href="/tags/thread/" style="font-size: 11.768138811689294px;" class="tag-cloud-link">thread</a>
     
-    <a href="/tags/多线程/" style="font-size: 9.312479445354217px;" class="tag-cloud-link">多线程</a>
+    <a href="/tags/多线程/" style="font-size: 18.71634903323502px;" class="tag-cloud-link">多线程</a>
     
-    <a href="/tags/Thread/" style="font-size: 17.52283072850528px;" class="tag-cloud-link">Thread</a>
+    <a href="/tags/Thread/" style="font-size: 10.076798441633965px;" class="tag-cloud-link">Thread</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
