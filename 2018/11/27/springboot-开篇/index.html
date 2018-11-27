@@ -12,7 +12,7 @@
     
     
     
-    <title>archive_a | Welcome to the World</title>
+    <title>springboot init | Welcome to the World</title>
     <link href="”http://yoursite.com“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -113,7 +113,7 @@
                 
                 
                 
-                <li class="current">
+                <li class="">
                     <a href="/archives">
                         <i class="fa fa-archive"></i>归档
                     </a>
@@ -179,19 +179,36 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-archive">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="http://yoursite.com">Welcome to the World</a>
         >
-        <span>归档</span>
+        <span>springboot init</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/archives">归档</a>
+                <a href="/2018/11/27/springboot-开篇/">springboot init</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/springboot/">springboot</a>, 
+                
+                <a href="/tags/spring/">spring</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-11-27
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -199,63 +216,38 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/archives">归档</a>
+                    <a href="/2018/11/27/springboot-开篇/">springboot init</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-11-27
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/springboot/">springboot</a>, 
+                
+                <a href="/tags/spring/">spring</a>
+                
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        
-        
-            <h1 style="font-size: 24px; margin-top: 40px;">2018年</h1>
-            
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-             
-             
-                        <a href="/2018/11/27/springboot-开篇/">springboot init</a>
-                        <br>
-            
-             
-                        <a href="/2018/11/22/HTML基础/">HTML基础</a>
-                        <br>
-            
-             
-                        <a href="/2018/11/17/JVM模型/">JVM模型</a>
-                        <br>
-            
-             
-                        <a href="/2018/11/14/ssm框架的常用配置（备用）/">ssm框架的常用配置（备用）</a>
-                        <br>
-            
-             
-                        <a href="/2018/11/08/多线程等待和唤醒/">多线程等待和唤醒</a>
-                        <br>
-            
-             
-                        <a href="/2018/11/07/多线程锁的安全性/">多线程锁的安全性</a>
-                        <br>
-            
-             
-                        <a href="/2018/11/07/log4j使用教程/">log4j使用教程</a>
-                        <br>
-            
-             
-                        <a href="/2018/11/06/Mybatis使用Mapper代理/">Mybatis</a>
-                        <br>
-            
-             
-                        <a href="/2018/11/06/多线程/">多线程</a>
-                        <br>
-            
-             
-                        <a href="/2018/11/06/hello-world/">Hello World</a>
-                        <br>
-            
-                    </div>
-        
+    <div class="content-article">
+        <h3 id="1、从官网生成springboot项目"><a href="#1、从官网生成springboot项目" class="headerlink" title="1、从官网生成springboot项目"></a>1、从官网生成springboot项目</h3><blockquote>
+<p>springboot项目生成: <a href="https://start.spring.io/" target="_blank" rel="noopener">https://start.spring.io/</a></p>
+</blockquote>
+<h3 id="2、导入项目"><a href="#2、导入项目" class="headerlink" title="2、导入项目"></a>2、导入项目</h3><h4 id="1）eclipse"><a href="#1）eclipse" class="headerlink" title="1）eclipse:"></a>1）eclipse:</h4><h4 id="2）idea"><a href="#2）idea" class="headerlink" title="2）idea:"></a>2）idea:</h4><p><img src="/springboot-init/20181127041816541.png" alt=""><br><img src="/springboot-init/20181127041959108.png" alt=""><br><img src="/springboot-init/20181127042533053.png" alt=""><br>然后一路点击<code>next</code>即可。</p>
+<h3 id="3、项目配置pom-xml"><a href="#3、项目配置pom-xml" class="headerlink" title="3、项目配置pom.xml"></a>3、项目配置pom.xml</h3><h4 id="1）加载web模块"><a href="#1）加载web模块" class="headerlink" title="1）加载web模块"></a>1）加载web模块</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2）开启热调试"><a href="#2）开启热调试" class="headerlink" title="2）开启热调试"></a>2）开启热调试</h4><p>调试工具模块<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>热调试插件<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">fork</span>&gt;</span>true<span class="tag">&lt;/<span class="name">fork</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+
     </div>
 </article>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -453,41 +445,41 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/archives/2018/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2018/11/27/springboot-开篇/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/archives/2018/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2018/11/27/springboot-开篇/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/archives/2018/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2018/11/27/springboot-开篇/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/教程/" style="font-size: 14.74841985559766px;" class="tag-cloud-link">教程</a>
+    <a href="/tags/教程/" style="font-size: 17.965680701383064px;" class="tag-cloud-link">教程</a>
     
-    <a href="/tags/前端/" style="font-size: 11.550738101211314px;" class="tag-cloud-link">前端</a>
+    <a href="/tags/前端/" style="font-size: 19.98859186704234px;" class="tag-cloud-link">前端</a>
     
-    <a href="/tags/jvm/" style="font-size: 8.976401751447586px;" class="tag-cloud-link">jvm</a>
+    <a href="/tags/jvm/" style="font-size: 13.596893063400504px;" class="tag-cloud-link">jvm</a>
     
-    <a href="/tags/Mybatis/" style="font-size: 12.465953249723386px;" class="tag-cloud-link">Mybatis</a>
+    <a href="/tags/Mybatis/" style="font-size: 11.384893666089134px;" class="tag-cloud-link">Mybatis</a>
     
-    <a href="/tags/Mapper/" style="font-size: 15.365784259278161px;" class="tag-cloud-link">Mapper</a>
+    <a href="/tags/Mapper/" style="font-size: 9.197122127068104px;" class="tag-cloud-link">Mapper</a>
     
-    <a href="/tags/springboot/" style="font-size: 14.1253660512119px;" class="tag-cloud-link">springboot</a>
+    <a href="/tags/springboot/" style="font-size: 16.31393077442493px;" class="tag-cloud-link">springboot</a>
     
-    <a href="/tags/spring/" style="font-size: 16.608577998909695px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/spring/" style="font-size: 14.809210309916685px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/springmvc/" style="font-size: 16.981864034614475px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/springmvc/" style="font-size: 11.168935323682673px;" class="tag-cloud-link">springmvc</a>
     
-    <a href="/tags/mybatis/" style="font-size: 17.86963477149159px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/mybatis/" style="font-size: 13.050418989452616px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/Thread/" style="font-size: 12.94339910176734px;" class="tag-cloud-link">Thread</a>
+    <a href="/tags/Thread/" style="font-size: 19.13075220084326px;" class="tag-cloud-link">Thread</a>
     
-    <a href="/tags/多线程/" style="font-size: 17.916232200169908px;" class="tag-cloud-link">多线程</a>
+    <a href="/tags/多线程/" style="font-size: 17.16777646408038px;" class="tag-cloud-link">多线程</a>
     
-    <a href="/tags/thread/" style="font-size: 8.479801618564391px;" class="tag-cloud-link">thread</a>
+    <a href="/tags/thread/" style="font-size: 15.18699943062326px;" class="tag-cloud-link">thread</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
