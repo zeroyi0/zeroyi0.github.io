@@ -80,8 +80,8 @@ int y = bar();
 <h3 id="How-can-I-put-line-numbers-on-every-line-instead-of-just-every-fifth-line"><a href="#How-can-I-put-line-numbers-on-every-line-instead-of-just-every-fifth-line" class="headerlink" title="How can I put line numbers on every line instead of just every fifth line?"></a>How can I put line numbers on every line instead of just every fifth line?</h3><p>Prettify puts lines into an HTML list element so that line numbers aren’t<br>caught by copy/paste, and the line numbering is controlled by CSS in the<br>default stylesheet, <code>prettify.css</code>.</p>
 <p>The following should turn line numbering back on for the other lines:</p>
 <pre><code class="HTML"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span>
-<span class="undefined">li.L0, li.L1, li.L2, li.L3,</span>
-<span class="undefined">li.L5, li.L6, li.L7, li.L8 {</span>
+<span class="css"><span class="selector-tag">li</span><span class="selector-class">.L0</span>, <span class="selector-tag">li</span><span class="selector-class">.L1</span>, <span class="selector-tag">li</span><span class="selector-class">.L2</span>, <span class="selector-tag">li</span><span class="selector-class">.L3</span>,</span>
+<span class="css"><span class="selector-tag">li</span><span class="selector-class">.L5</span>, <span class="selector-tag">li</span><span class="selector-class">.L6</span>, <span class="selector-tag">li</span><span class="selector-class">.L7</span>, <span class="selector-tag">li</span><span class="selector-class">.L8</span> {</span>
 <span class="undefined">  list-style-type: decimal !important;</span>
 <span class="undefined">}</span>
 <span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span>
