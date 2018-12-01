@@ -145,11 +145,11 @@
                         </li>
                         
                         <li>
-                            <a href="/tags/struts2/">struts2</a>
+                            <a href="/tags/教程/">教程</a>
                         </li>
                         
                         <li>
-                            <a href="/tags/ssh/">ssh</a>
+                            <a href="/tags/前端/">前端</a>
                         </li>
                         
                         
@@ -236,7 +236,7 @@
         </center>
     </div>
     <div class="content-article">
-        <h3 id="1、添加jar包依赖"><a href="#1、添加jar包依赖" class="headerlink" title="1、添加jar包依赖"></a>1、添加jar包依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+        <h3 id="1、添加jar包依赖"><a href="#1、添加jar包依赖" class="headerlink" title="1、添加jar包依赖"></a>1、添加jar包依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="2、添加配置文件"><a href="#2、添加配置文件" class="headerlink" title="2、添加配置文件"></a>2、添加配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.url=jdbc:mysql://localhost:3306/test</span><br><span class="line">spring.datasource.username=root</span><br><span class="line">spring.datasource.password=root</span><br><span class="line">spring.datasource.driver-class-name=com.mysql.jdbc.Driver</span><br><span class="line"></span><br><span class="line">spring.jpa.properties.hibernate.hbm2ddl.auto=update</span><br><span class="line">spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect</span><br><span class="line">spring.jpa.show-sql= true</span><br></pre></td></tr></table></figure>
 <h4 id="hibernate-hbm2ddl-auto属性"><a href="#hibernate-hbm2ddl-auto属性" class="headerlink" title="hibernate.hbm2ddl.auto属性"></a>hibernate.hbm2ddl.auto属性</h4><ul>
 <li>create： 每次加载hibernate时都会删除上一次的生成的表，然后根据你的model类再重新来生成新表。</li>
@@ -305,12 +305,6 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/12/01/20181201092046/">20181201092046</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2018/11/29/springboot整合mybatis/">springboot整合mybatis</a>
                 </span>
             </li>
@@ -363,6 +357,12 @@
                 </span>
             </li>
             
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/07/log4j使用教程/">log4j使用教程</a>
+                </span>
+            </li>
+            
         </ul>
     </div>
 </aside>
@@ -381,13 +381,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/12/01/20181201092046/">20181201092046</a>
+                    <a href="/2018/11/17/JVM模型/">JVM模型</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/17/JVM模型/">JVM模型</a>
+                    <a href="/2018/11/22/HTML基础/">HTML基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/07/log4j使用教程/">log4j使用教程</a>
                 </span>
             </li>
             
@@ -399,19 +405,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/06/Mybatis使用Mapper代理/">Mybatis</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/06/hello-world/">Hello World</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2018/11/27/springboot-开篇/">springboot init</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/29/springboot整合mybatis/">springboot整合mybatis</a>
                 </span>
             </li>
             
@@ -429,13 +429,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/08/多线程等待和唤醒/">多线程等待和唤醒</a>
+                    <a href="/2018/11/07/多线程锁的安全性/">多线程锁的安全性</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/07/多线程锁的安全性/">多线程锁的安全性</a>
+                    <a href="/2018/11/08/多线程等待和唤醒/">多线程等待和唤醒</a>
                 </span>
             </li>
             
@@ -460,35 +460,35 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/jvm/" style="font-size: 9.854127472359037px;" class="tag-cloud-link">jvm</a>
+    <a href="/tags/jvm/" style="font-size: 13.020404453370487px;" class="tag-cloud-link">jvm</a>
     
-    <a href="/tags/struts2/" style="font-size: 19.744969780713504px;" class="tag-cloud-link">struts2</a>
+    <a href="/tags/教程/" style="font-size: 11.640514370730099px;" class="tag-cloud-link">教程</a>
     
-    <a href="/tags/ssh/" style="font-size: 9.781891837082096px;" class="tag-cloud-link">ssh</a>
+    <a href="/tags/前端/" style="font-size: 15.79585663944123px;" class="tag-cloud-link">前端</a>
     
-    <a href="/tags/Mybatis/" style="font-size: 15.284564319927405px;" class="tag-cloud-link">Mybatis</a>
+    <a href="/tags/Mybatis/" style="font-size: 13.55044066381145px;" class="tag-cloud-link">Mybatis</a>
     
-    <a href="/tags/Mapper/" style="font-size: 17.398920796034766px;" class="tag-cloud-link">Mapper</a>
+    <a href="/tags/Mapper/" style="font-size: 11.547161669220127px;" class="tag-cloud-link">Mapper</a>
     
-    <a href="/tags/教程/" style="font-size: 13.006311460561662px;" class="tag-cloud-link">教程</a>
+    <a href="/tags/struts2/" style="font-size: 17.561889296198267px;" class="tag-cloud-link">struts2</a>
     
-    <a href="/tags/前端/" style="font-size: 11.096222853795854px;" class="tag-cloud-link">前端</a>
+    <a href="/tags/ssh/" style="font-size: 16.356237375837473px;" class="tag-cloud-link">ssh</a>
     
-    <a href="/tags/springboot/" style="font-size: 16.335868858694344px;" class="tag-cloud-link">springboot</a>
+    <a href="/tags/springboot/" style="font-size: 16.42379973763071px;" class="tag-cloud-link">springboot</a>
     
-    <a href="/tags/spring/" style="font-size: 16.44045079445705px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/spring/" style="font-size: 14.25794484122576px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/mybatis/" style="font-size: 14.841147243322943px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/mybatis/" style="font-size: 11.746521699073991px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/dao/" style="font-size: 18.477608192010706px;" class="tag-cloud-link">dao</a>
+    <a href="/tags/springmvc/" style="font-size: 13.266458690524306px;" class="tag-cloud-link">springmvc</a>
     
-    <a href="/tags/springmvc/" style="font-size: 13.732732757162658px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/Thread/" style="font-size: 8.801275151812026px;" class="tag-cloud-link">Thread</a>
     
-    <a href="/tags/Thread/" style="font-size: 13.966165704993402px;" class="tag-cloud-link">Thread</a>
+    <a href="/tags/多线程/" style="font-size: 18.37707291061689px;" class="tag-cloud-link">多线程</a>
     
-    <a href="/tags/多线程/" style="font-size: 9.544395728250496px;" class="tag-cloud-link">多线程</a>
+    <a href="/tags/dao/" style="font-size: 16.152697124397825px;" class="tag-cloud-link">dao</a>
     
-    <a href="/tags/thread/" style="font-size: 11.948187769108646px;" class="tag-cloud-link">thread</a>
+    <a href="/tags/thread/" style="font-size: 9.70552771334208px;" class="tag-cloud-link">thread</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
