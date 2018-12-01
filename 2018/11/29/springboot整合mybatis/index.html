@@ -12,7 +12,7 @@
     
     
     
-    <title>tags: springmvc | Welcome to the World</title>
+    <title>springboot整合mybatis | Welcome to the World</title>
     <link href="”http://yoursite.com“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -179,19 +179,36 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-tag">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="http://yoursite.com">Welcome to the World</a>
         >
-        <span>标签</span>
+        <span>springboot整合mybatis</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/tags/springmvc/index.html">springmvc</a>
+                <a href="/2018/11/29/springboot整合mybatis/">springboot整合mybatis</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/springboot/">springboot</a>, 
+                
+                <a href="/tags/mybatis/">mybatis</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-11-29
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -199,21 +216,37 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/tags/springmvc/index.html">springmvc</a>
+                    <a href="/2018/11/29/springboot整合mybatis/">springboot整合mybatis</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-11-29
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/springboot/">springboot</a>, 
+                
+                <a href="/tags/mybatis/">mybatis</a>
+                
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/2018/11/14/ssm框架的常用配置（备用）/">ssm框架的常用配置（备用）</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        <h3 id="dao层自动生成"><a href="#dao层自动生成" class="headerlink" title="dao层自动生成"></a>dao层自动生成</h3><h4 id="1、插件"><a href="#1、插件" class="headerlink" title="1、插件"></a>1、插件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- mybatis generator 自动生成代码插件 --&gt;</span><br><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;groupId&gt;org.mybatis.generator&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mybatis-generator-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">    &lt;configuration&gt;</span><br><span class="line">    &lt;!--配置文件路径--&gt;     </span><br><span class="line">     &lt;configurationFile&gt;$&#123;basedir&#125;/src/main/resources/generator/generatorConfig.xml&lt;/configurationFile&gt;</span><br><span class="line">        &lt;overwrite&gt;true&lt;/overwrite&gt;</span><br><span class="line">        &lt;verbose&gt;true&lt;/verbose&gt;</span><br><span class="line">    &lt;/configuration&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="2、连接数据库配置"><a href="#2、连接数据库配置" class="headerlink" title="2、连接数据库配置"></a>2、连接数据库配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE generatorConfiguration</span><br><span class="line">        PUBLIC &quot;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&quot;</span><br><span class="line">        &quot;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--mybatis-generator:generate -e--&gt;</span><br><span class="line"></span><br><span class="line">&lt;generatorConfiguration&gt;</span><br><span class="line">    &lt;!-- 数据库驱动:选择你的本地硬盘上面的数据库驱动包--&gt;</span><br><span class="line">    &lt;classPathEntry  location=&quot;D:\Source\Java\jar\mavenJar\mysql\mysql-connector-java\5.1.27\mysql-connector-java-5.1.27.jar&quot;/&gt;</span><br><span class="line">    &lt;context id=&quot;DB2Tables&quot;  targetRuntime=&quot;MyBatis3&quot;&gt;</span><br><span class="line">        &lt;commentGenerator&gt;</span><br><span class="line">            &lt;property name=&quot;suppressDate&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">            &lt;!-- 是否去除自动生成的注释 true：是 ： false:否 --&gt;</span><br><span class="line">            &lt;property name=&quot;suppressAllComments&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">        &lt;/commentGenerator&gt;</span><br><span class="line">        &lt;!--数据库链接URL，用户名、密码 --&gt;</span><br><span class="line">        &lt;jdbcConnection driverClass=&quot;com.mysql.jdbc.Driver&quot; connectionURL=&quot;jdbc:mysql://xxx:3306/test&quot; userId=&quot;root&quot; password=&quot;xxx&quot;&gt;</span><br><span class="line">        &lt;/jdbcConnection&gt;</span><br><span class="line">        &lt;javaTypeResolver&gt;</span><br><span class="line">            &lt;property name=&quot;forceBigDecimals&quot; value=&quot;false&quot;/&gt;</span><br><span class="line">        &lt;/javaTypeResolver&gt;</span><br><span class="line">        &lt;!-- 生成模型的包名和位置--&gt;</span><br><span class="line">        &lt;javaModelGenerator targetPackage=&quot;top.biandan.mybat.model&quot; targetProject=&quot;src/main/java&quot;&gt;</span><br><span class="line">            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">            &lt;property name=&quot;trimStrings&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">        &lt;/javaModelGenerator&gt;</span><br><span class="line">        &lt;!-- 生成映射文件的包名和位置--&gt;</span><br><span class="line">        &lt;sqlMapGenerator targetPackage=&quot;mapping&quot; targetProject=&quot;src/main/resources&quot;&gt;</span><br><span class="line">            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">        &lt;/sqlMapGenerator&gt;</span><br><span class="line">        &lt;!-- 生成DAO的包名和位置--&gt;</span><br><span class="line">        &lt;javaClientGenerator type=&quot;XMLMAPPER&quot; targetPackage=&quot;top.biandan.mybat.dao&quot; targetProject=&quot;src/main/java&quot;&gt;</span><br><span class="line">            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">        &lt;/javaClientGenerator&gt;</span><br><span class="line">        &lt;!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名--&gt;</span><br><span class="line">        &lt;table tableName=&quot;user&quot; domainObjectName=&quot;User&quot; enableCountByExample=&quot;false&quot; enableUpdateByExample=&quot;false&quot; enableDeleteByExample=&quot;false&quot; enableSelectByExample=&quot;false&quot; selectByExampleQueryId=&quot;false&quot;&gt;&lt;/table&gt;</span><br><span class="line">    &lt;/context&gt;</span><br><span class="line">&lt;/generatorConfiguration&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="3、开始生成"><a href="#3、开始生成" class="headerlink" title="3、开始生成"></a>3、开始生成</h4><p><img src="/springboot整合mybatis/20181129045145428.png" alt=""><br><img src="/springboot整合mybatis/20181129045312951.png" alt=""></p>
+<h3 id="springboot整合mybatis"><a href="#springboot整合mybatis" class="headerlink" title="springboot整合mybatis"></a><code>springboot</code>整合<code>mybatis</code></h3><h4 id="1、导入springboot-mybatis模块"><a href="#1、导入springboot-mybatis模块" class="headerlink" title="1、导入springboot-mybatis模块"></a>1、导入springboot-mybatis模块</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;5.1.46&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.3.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="2、配置数据库连接application-properties"><a href="#2、配置数据库连接application-properties" class="headerlink" title="2、配置数据库连接application.properties"></a>2、配置数据库连接<code>application.properties</code></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 数据库连接配置</span><br><span class="line">spring.datasource.url=jdbc:mysql://xxx:3306/test?characterEncoding=UTF-8</span><br><span class="line">spring.datasource.username=root</span><br><span class="line">spring.datasource.password=xxxx</span><br><span class="line">spring.datasource.driver-class-name=com.mysql.jdbc.Driver</span><br><span class="line"># mapper配置文件路径</span><br><span class="line">mybatis.mapper-locations=classpath:mapping/*.xml</span><br><span class="line"># 实体类路径</span><br><span class="line">mybatis.type-aliases-package=top.biandan.mybat.model</span><br></pre></td></tr></table></figure>
+<h4 id="3、配置mapper接口扫描"><a href="#3、配置mapper接口扫描" class="headerlink" title="3、配置mapper接口扫描"></a>3、配置mapper接口扫描</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootApplication</span><br><span class="line">@MapperScan(&quot;top.biandan.mybat.dao&quot;)  // mapper接口路径（接口使用@Repository注解防止报错）</span><br><span class="line">public class MybatApplication &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(MybatApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     </div>
 </article>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -344,12 +377,6 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/12/01/20181201092046/">20181201092046</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2018/11/17/JVM模型/">JVM模型</a>
                 </span>
             </li>
@@ -357,6 +384,18 @@
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2018/11/28/helllo-Struts2!/">helllo Struts2!</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/06/Mybatis使用Mapper代理/">Mybatis</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/22/HTML基础/">HTML基础</a>
                 </span>
             </li>
             
@@ -380,13 +419,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/29/springboot整合mybatis/">springboot整合mybatis</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/28/springboot操作dao层/">springboot操作dao层</a>
+                    <a href="/2018/11/14/ssm框架的常用配置（备用）/">ssm框架的常用配置（备用）</a>
                 </span>
             </li>
             
@@ -411,47 +444,47 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/tags/springmvc/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2018/11/29/springboot整合mybatis/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/tags/springmvc/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2018/11/29/springboot整合mybatis/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/tags/springmvc/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2018/11/29/springboot整合mybatis/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/jvm/" style="font-size: 11.17937521347934px;" class="tag-cloud-link">jvm</a>
+    <a href="/tags/jvm/" style="font-size: 8.033727331699703px;" class="tag-cloud-link">jvm</a>
     
-    <a href="/tags/struts2/" style="font-size: 14.033020112474592px;" class="tag-cloud-link">struts2</a>
+    <a href="/tags/struts2/" style="font-size: 9.700503435222773px;" class="tag-cloud-link">struts2</a>
     
-    <a href="/tags/ssh/" style="font-size: 15.410071767846484px;" class="tag-cloud-link">ssh</a>
+    <a href="/tags/ssh/" style="font-size: 15.4148523406908px;" class="tag-cloud-link">ssh</a>
     
-    <a href="/tags/Mybatis/" style="font-size: 10.423144331484934px;" class="tag-cloud-link">Mybatis</a>
+    <a href="/tags/Mybatis/" style="font-size: 8.965078290698813px;" class="tag-cloud-link">Mybatis</a>
     
-    <a href="/tags/Mapper/" style="font-size: 10.680947887273224px;" class="tag-cloud-link">Mapper</a>
+    <a href="/tags/Mapper/" style="font-size: 13.91009810207517px;" class="tag-cloud-link">Mapper</a>
     
-    <a href="/tags/教程/" style="font-size: 16.649151031016867px;" class="tag-cloud-link">教程</a>
+    <a href="/tags/教程/" style="font-size: 18.760019064106665px;" class="tag-cloud-link">教程</a>
     
-    <a href="/tags/前端/" style="font-size: 8.328808077487864px;" class="tag-cloud-link">前端</a>
+    <a href="/tags/前端/" style="font-size: 11.058640056715436px;" class="tag-cloud-link">前端</a>
     
-    <a href="/tags/springboot/" style="font-size: 9.851026203546084px;" class="tag-cloud-link">springboot</a>
+    <a href="/tags/springboot/" style="font-size: 19.888389873508544px;" class="tag-cloud-link">springboot</a>
     
-    <a href="/tags/spring/" style="font-size: 18.104931615020654px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/spring/" style="font-size: 19.673212183218286px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/mybatis/" style="font-size: 16.249078740418625px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/mybatis/" style="font-size: 16.601571478917208px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/dao/" style="font-size: 10.84272558305941px;" class="tag-cloud-link">dao</a>
+    <a href="/tags/dao/" style="font-size: 9.976013492265594px;" class="tag-cloud-link">dao</a>
     
-    <a href="/tags/springmvc/" style="font-size: 11.325486834826785px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/springmvc/" style="font-size: 10.590641671031413px;" class="tag-cloud-link">springmvc</a>
     
-    <a href="/tags/Thread/" style="font-size: 16.673432398136036px;" class="tag-cloud-link">Thread</a>
+    <a href="/tags/Thread/" style="font-size: 14.504224557247511px;" class="tag-cloud-link">Thread</a>
     
-    <a href="/tags/多线程/" style="font-size: 14.982852779458378px;" class="tag-cloud-link">多线程</a>
+    <a href="/tags/多线程/" style="font-size: 9.070872675719272px;" class="tag-cloud-link">多线程</a>
     
-    <a href="/tags/thread/" style="font-size: 15.74464734722159px;" class="tag-cloud-link">thread</a>
+    <a href="/tags/thread/" style="font-size: 15.952681215730848px;" class="tag-cloud-link">thread</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">

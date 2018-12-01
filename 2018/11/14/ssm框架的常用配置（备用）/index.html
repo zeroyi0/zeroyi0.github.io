@@ -141,15 +141,15 @@
                         
                         
                         <li>
-                            <a href="/tags/教程/">教程</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/前端/">前端</a>
-                        </li>
-                        
-                        <li>
                             <a href="/tags/jvm/">jvm</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/struts2/">struts2</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/ssh/">ssh</a>
                         </li>
                         
                         
@@ -201,9 +201,9 @@
                 
                 <a href="/tags/spring/">spring</a>, 
                 
-                <a href="/tags/springmvc/">springmvc</a>, 
+                <a href="/tags/mybatis/">mybatis</a>, 
                 
-                <a href="/tags/mybatis/">mybatis</a>
+                <a href="/tags/springmvc/">springmvc</a>
                 
             </span>
             
@@ -230,9 +230,9 @@
                 
                 <a href="/tags/spring/">spring</a>, 
                 
-                <a href="/tags/springmvc/">springmvc</a>, 
+                <a href="/tags/mybatis/">mybatis</a>, 
                 
-                <a href="/tags/mybatis/">mybatis</a>
+                <a href="/tags/springmvc/">springmvc</a>
                 
                 
                 
@@ -240,27 +240,27 @@
         </center>
     </div>
     <div class="content-article">
-        <h2 id="SpringMVC配置"><a href="#SpringMVC配置" class="headerlink" title="SpringMVC配置"></a>SpringMVC配置</h2><h3 id="静态资源处理器"><a href="#静态资源处理器" class="headerlink" title="静态资源处理器"></a>静态资源处理器</h3><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;mvc:<span class="keyword">default</span>-servlet-<span class="keyword">handler</span> /&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="扫描器"><a href="#扫描器" class="headerlink" title="扫描器"></a>扫描器</h3><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">context</span>:<span class="keyword">component</span>-scan base-<span class="keyword">package</span>=<span class="string">"top"</span>  /&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="AOP配置"><a href="#AOP配置" class="headerlink" title="AOP配置"></a>AOP配置</h3><h5 id="url资源引入"><a href="#url资源引入" class="headerlink" title="url资源引入"></a>url资源引入</h5><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">xmlns:</span>aop=<span class="string">"http://www.springframework.org/schema/aop"</span></span><br><span class="line"><span class="symbol">http:</span>//www.springframework<span class="meta">.org</span>/schema/aop</span><br><span class="line"><span class="symbol">http:</span>//www.springframework<span class="meta">.org</span>/schema/aop/spring-aop.xsd</span><br></pre></td></tr></table></figure>
-<h5 id="开启aop"><a href="#开启aop" class="headerlink" title="开启aop"></a>开启aop</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 开启aop注解方式,默认为false --&gt;</span>    </span><br><span class="line"><span class="tag">&lt;<span class="name">aop:aspectj-autoproxy</span>&gt;</span><span class="tag">&lt;/<span class="name">aop:aspectj-autoproxy</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="事务资源引入"><a href="#事务资源引入" class="headerlink" title="事务资源引入"></a>事务资源引入</h5><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">xmlns:</span>tx=<span class="string">"http://www.springframework.org/schema/tx"</span></span><br><span class="line"><span class="symbol">http:</span>//www.springframework<span class="meta">.org</span>/schema/tx</span><br><span class="line"><span class="symbol">http:</span>//www.springframework<span class="meta">.org</span>/schema/tx/spring-tx.xsd</span><br></pre></td></tr></table></figure>
-<h5 id="开启事务"><a href="#开启事务" class="headerlink" title="开启事务"></a>开启事务</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 事务注解驱动，标注@Transactional的类和方法将具有事务性 --&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">"txManager"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="事务管理器"><a href="#事务管理器" class="headerlink" title="事务管理器"></a>事务管理器</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">&lt;!-- 事务管理器 --&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"txManager"</span>  </span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span> /&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="事务注解驱动"><a href="#事务注解驱动" class="headerlink" title="事务注解驱动"></a>事务注解驱动</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 事务注解驱动，标注@Transactional的类和方法将具有事务性 --&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">"txManager"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="视图解析器"><a href="#视图解析器" class="headerlink" title="视图解析器"></a>视图解析器</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- configure the InternalResourceViewResolver --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">id</span>=<span class="string">"internalResourceViewResolver"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 前缀 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prefix"</span> <span class="attr">value</span>=<span class="string">"/WEB-INF/jsp/"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 后缀 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suffix"</span> <span class="attr">value</span>=<span class="string">".jsp"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="Json解析器"><a href="#Json解析器" class="headerlink" title="Json解析器"></a>Json解析器</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"mappingJacksonHttpMessageConverter"</span>	</span></span><br><span class="line"><span class="tag"><span class="attr">class</span>=<span class="string">"org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"supportedMediaTypes"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>text/html;charset=UTF-8<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="SpringMVC配置"><a href="#SpringMVC配置" class="headerlink" title="SpringMVC配置"></a>SpringMVC配置</h2><h3 id="静态资源处理器"><a href="#静态资源处理器" class="headerlink" title="静态资源处理器"></a>静态资源处理器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;mvc:default-servlet-handler /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="扫描器"><a href="#扫描器" class="headerlink" title="扫描器"></a>扫描器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;context:component-scan base-package=&quot;top&quot;  /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="AOP配置"><a href="#AOP配置" class="headerlink" title="AOP配置"></a>AOP配置</h3><h5 id="url资源引入"><a href="#url资源引入" class="headerlink" title="url资源引入"></a>url资源引入</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;</span><br><span class="line">http://www.springframework.org/schema/aop</span><br><span class="line">http://www.springframework.org/schema/aop/spring-aop.xsd</span><br></pre></td></tr></table></figure>
+<h5 id="开启aop"><a href="#开启aop" class="headerlink" title="开启aop"></a>开启aop</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 开启aop注解方式,默认为false --&gt;    </span><br><span class="line">&lt;aop:aspectj-autoproxy&gt;&lt;/aop:aspectj-autoproxy&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="事务资源引入"><a href="#事务资源引入" class="headerlink" title="事务资源引入"></a>事务资源引入</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;</span><br><span class="line">http://www.springframework.org/schema/tx</span><br><span class="line">http://www.springframework.org/schema/tx/spring-tx.xsd</span><br></pre></td></tr></table></figure>
+<h5 id="开启事务"><a href="#开启事务" class="headerlink" title="开启事务"></a>开启事务</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 事务注解驱动，标注@Transactional的类和方法将具有事务性 --&gt;  </span><br><span class="line">&lt;tx:annotation-driven transaction-manager=&quot;txManager&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="事务管理器"><a href="#事务管理器" class="headerlink" title="事务管理器"></a>事务管理器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!-- 事务管理器 --&gt;  </span><br><span class="line">&lt;bean id=&quot;txManager&quot;  </span><br><span class="line">    class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;  </span><br><span class="line">        &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;  </span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="事务注解驱动"><a href="#事务注解驱动" class="headerlink" title="事务注解驱动"></a>事务注解驱动</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 事务注解驱动，标注@Transactional的类和方法将具有事务性 --&gt;  </span><br><span class="line">&lt;tx:annotation-driven transaction-manager=&quot;txManager&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="视图解析器"><a href="#视图解析器" class="headerlink" title="视图解析器"></a>视图解析器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- configure the InternalResourceViewResolver --&gt;</span><br><span class="line">&lt;bean class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot; </span><br><span class="line">    id=&quot;internalResourceViewResolver&quot;&gt;</span><br><span class="line">    &lt;!-- 前缀 --&gt;</span><br><span class="line">    &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/jsp/&quot; /&gt;</span><br><span class="line">    &lt;!-- 后缀 --&gt;</span><br><span class="line">    &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Json解析器"><a href="#Json解析器" class="headerlink" title="Json解析器"></a>Json解析器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;mappingJacksonHttpMessageConverter&quot;	</span><br><span class="line">class=&quot;org.springframework.http.converter.json.MappingJackson2HttpMessageConverter&quot;&gt;</span><br><span class="line">  &lt;property name=&quot;supportedMediaTypes&quot;&gt;</span><br><span class="line">   &lt;list&gt;</span><br><span class="line">    &lt;value&gt;text/html;charset=UTF-8&lt;/value&gt;</span><br><span class="line">   &lt;/list&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h3><ul>
 <li><h5 id="preHandle-调用之前"><a href="#preHandle-调用之前" class="headerlink" title="preHandle 调用之前"></a>preHandle 调用之前</h5></li>
 <li><h5 id="postHandle-调用之后，返回视图之前"><a href="#postHandle-调用之后，返回视图之前" class="headerlink" title="postHandle 调用之后，返回视图之前"></a>postHandle 调用之后，返回视图之前</h5></li>
-<li><h5 id="afterCompletion-返回视图之后"><a href="#afterCompletion-返回视图之后" class="headerlink" title="afterCompletion 返回视图之后"></a>afterCompletion 返回视图之后</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mvc:interceptors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 拦截路径 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mvc:mapping</span> <span class="attr">path</span>=<span class="string">"/**"</span>/&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 放行路径 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mvc:exclude-mapping</span> <span class="attr">path</span>=<span class="string">"/Login/**"</span>/&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 映射拦截器类 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"top.biandan.interceptor.LoginInterceptor"</span>/&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;/<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mvc:interceptors</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><h5 id="afterCompletion-返回视图之后"><a href="#afterCompletion-返回视图之后" class="headerlink" title="afterCompletion 返回视图之后"></a>afterCompletion 返回视图之后</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;mvc:interceptors&gt;</span><br><span class="line">    &lt;mvc:interceptor&gt;</span><br><span class="line">        &lt;!-- 拦截路径 --&gt;</span><br><span class="line">        &lt;mvc:mapping path=&quot;/**&quot;/&gt;</span><br><span class="line">        &lt;!-- 放行路径 --&gt;</span><br><span class="line">        &lt;mvc:exclude-mapping path=&quot;/Login/**&quot;/&gt;</span><br><span class="line">        &lt;!-- 映射拦截器类 --&gt;</span><br><span class="line">        &lt;bean class=&quot;top.biandan.interceptor.LoginInterceptor&quot;/&gt;  </span><br><span class="line">    &lt;/mvc:interceptor&gt;</span><br><span class="line">&lt;/mvc:interceptors&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="Spring配置"><a href="#Spring配置" class="headerlink" title="Spring配置"></a>Spring配置</h2><h3 id="配置web-xml"><a href="#配置web-xml" class="headerlink" title="配置web.xml"></a>配置web.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置监听器 --&gt;</span> <span class="comment">&lt;!-- 以便在服务器启动的时候，加载spring配置文件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span></span><br><span class="line">     org.springframework.web.context.ContextLoaderListener</span><br><span class="line">   <span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 配置spring配置文件路径 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:applicationContext.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="引入properties文件"><a href="#引入properties文件" class="headerlink" title="引入properties文件"></a>引入properties文件</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 引入db.properties --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:property-placeholder</span> <span class="attr">location</span>=<span class="string">"classpath:db.properties"</span> <span class="attr">ignore-unresolvable</span>=<span class="string">"true"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="配置数据库连接池"><a href="#配置数据库连接池" class="headerlink" title="配置数据库连接池"></a>配置数据库连接池</h3><figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="comment">&lt;!-- 配置dataSource数据库连接池 --&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"org.apache.commons.dbcp.BasicDataSource"</span> <span class="attr">destroy-method</span>=<span class="string">"close"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClassName"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;jdbc.driver&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> /&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;jdbc.url&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> /&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;jdbc.username&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> /&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;jdbc.password&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> /&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="comment">&lt;!-- 初始化连接大小 --&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"initialSize"</span> <span class="attr">value</span>=<span class="string">"5"</span> /&gt;</span></span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- 连接池最大使用连接数量 --&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxActive"</span> <span class="attr">value</span>=<span class="string">"20"</span> /&gt;</span></span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- 连接池最小空闲 --&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"minIdle"</span> <span class="attr">value</span>=<span class="string">"5"</span> /&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="配置sqlSession会话工厂"><a href="#配置sqlSession会话工厂" class="headerlink" title="配置sqlSession会话工厂"></a>配置sqlSession会话工厂</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- spring和MyBatis完美整合 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sqlSessionFactory"</span> <span class="attr">class</span>=<span class="string">"org.mybatis.spring.SqlSessionFactoryBean"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定数据源 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 具体指定xml文件，可不配 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    &lt;property name="configLocation" value="classpath:mybatis.xml"/&gt;</span></span><br><span class="line"><span class="comment">     --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 自动扫描mapping.xml文件，**表示迭代查找 ,,也可在mybatis-config.xml中单独指定xml文件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"mapperLocations"</span> <span class="attr">value</span>=<span class="string">"classpath:top/biandan/dao/*.xml"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="配置Dao层文件扫描"><a href="#配置Dao层文件扫描" class="headerlink" title="配置Dao层文件扫描"></a>配置Dao层文件扫描</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 自动扫描所有dao接口，并实现这些接口，可直接在程序中使用dao接口，不用再获取sqlsession对象 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.mybatis.spring.mapper.MapperScannerConfigurer"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    basePackage 属性是映射器接口文件的包路径。</span></span><br><span class="line"><span class="comment">             你可以使用分号或逗号 作为分隔符设置多于一个的包路径</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"basePackage"</span> <span class="attr">value</span>=<span class="string">"top/biandan/dao/**"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Spring配置"><a href="#Spring配置" class="headerlink" title="Spring配置"></a>Spring配置</h2><h3 id="配置web-xml"><a href="#配置web-xml" class="headerlink" title="配置web.xml"></a>配置web.xml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--配置监听器 --&gt; &lt;!-- 以便在服务器启动的时候，加载spring配置文件 --&gt;</span><br><span class="line">&lt;listener&gt;</span><br><span class="line">    &lt;listener-class&gt;</span><br><span class="line">     org.springframework.web.context.ContextLoaderListener</span><br><span class="line">   &lt;/listener-class&gt;</span><br><span class="line">&lt;/listener&gt;</span><br><span class="line">&lt;!-- 配置spring配置文件路径 --&gt;</span><br><span class="line">&lt;context-param&gt;</span><br><span class="line">    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">    &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;</span><br><span class="line">&lt;/context-param&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="引入properties文件"><a href="#引入properties文件" class="headerlink" title="引入properties文件"></a>引入properties文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 引入db.properties --&gt;</span><br><span class="line">&lt;context:property-placeholder location=&quot;classpath:db.properties&quot; ignore-unresolvable=&quot;true&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="配置数据库连接池"><a href="#配置数据库连接池" class="headerlink" title="配置数据库连接池"></a>配置数据库连接池</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 配置dataSource数据库连接池 --&gt;</span><br><span class="line">&lt;bean id=&quot;dataSource&quot; class=&quot;org.apache.commons.dbcp.BasicDataSource&quot; destroy-method=&quot;close&quot;&gt;</span><br><span class="line">    &lt;property name=&quot;driverClassName&quot; value=&quot;$&#123;jdbc.driver&#125;&quot; /&gt;</span><br><span class="line">    &lt;property name=&quot;url&quot; value=&quot;$&#123;jdbc.url&#125;&quot; /&gt;</span><br><span class="line">    &lt;property name=&quot;username&quot; value=&quot;$&#123;jdbc.username&#125;&quot; /&gt;</span><br><span class="line">    &lt;property name=&quot;password&quot; value=&quot;$&#123;jdbc.password&#125;&quot; /&gt;</span><br><span class="line">    &lt;!-- 初始化连接大小 --&gt;</span><br><span class="line">&lt;property name=&quot;initialSize&quot; value=&quot;5&quot; /&gt;</span><br><span class="line">&lt;!-- 连接池最大使用连接数量 --&gt;</span><br><span class="line">&lt;property name=&quot;maxActive&quot; value=&quot;20&quot; /&gt;</span><br><span class="line">&lt;!-- 连接池最小空闲 --&gt;</span><br><span class="line">    &lt;property name=&quot;minIdle&quot; value=&quot;5&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="配置sqlSession会话工厂"><a href="#配置sqlSession会话工厂" class="headerlink" title="配置sqlSession会话工厂"></a>配置sqlSession会话工厂</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- spring和MyBatis完美整合 --&gt;</span><br><span class="line">&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;</span><br><span class="line">    &lt;!-- 指定数据源 --&gt;</span><br><span class="line">    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;</span><br><span class="line">    &lt;!-- 具体指定xml文件，可不配 --&gt;</span><br><span class="line">    &lt;!-- </span><br><span class="line">    &lt;property name=&quot;configLocation&quot; value=&quot;classpath:mybatis.xml&quot;/&gt;</span><br><span class="line">     --&gt;</span><br><span class="line">    &lt;!-- 自动扫描mapping.xml文件，**表示迭代查找 ,,也可在mybatis-config.xml中单独指定xml文件 --&gt;</span><br><span class="line">    &lt;property name=&quot;mapperLocations&quot; value=&quot;classpath:top/biandan/dao/*.xml&quot;/&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="配置Dao层文件扫描"><a href="#配置Dao层文件扫描" class="headerlink" title="配置Dao层文件扫描"></a>配置Dao层文件扫描</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 自动扫描所有dao接口，并实现这些接口，可直接在程序中使用dao接口，不用再获取sqlsession对象 --&gt;</span><br><span class="line">&lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;</span><br><span class="line">    &lt;!--</span><br><span class="line">    basePackage 属性是映射器接口文件的包路径。</span><br><span class="line">             你可以使用分号或逗号 作为分隔符设置多于一个的包路径</span><br><span class="line">    --&gt;</span><br><span class="line">    &lt;property name=&quot;basePackage&quot; value=&quot;top/biandan/dao/**&quot;/&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
 
     </div>
 </article>
@@ -320,6 +320,18 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2018/12/01/20181201092046/">20181201092046</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/29/springboot整合mybatis/">springboot整合mybatis</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2018/11/28/springboot操作dao层/">springboot操作dao层</a>
                 </span>
             </li>
@@ -366,18 +378,6 @@
                 </span>
             </li>
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/07/log4j使用教程/">log4j使用教程</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/06/Mybatis使用Mapper代理/">Mybatis</a>
-                </span>
-            </li>
-            
         </ul>
     </div>
 </aside>
@@ -396,19 +396,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/22/HTML基础/">HTML基础</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/17/JVM模型/">JVM模型</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/06/Mybatis使用Mapper代理/">Mybatis</a>
+                    <a href="/2018/12/01/20181201092046/">20181201092046</a>
                 </span>
             </li>
             
@@ -420,19 +408,31 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/06/hello-world/">Hello World</a>
+                    <a href="/2018/11/06/Mybatis使用Mapper代理/">Mybatis</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/06/多线程/">多线程</a>
+                    <a href="/2018/11/22/HTML基础/">HTML基础</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/08/多线程等待和唤醒/">多线程等待和唤醒</a>
+                    <a href="/2018/11/07/log4j使用教程/">log4j使用教程</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/29/springboot整合mybatis/">springboot整合mybatis</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/28/springboot操作dao层/">springboot操作dao层</a>
                 </span>
             </li>
             
@@ -444,13 +444,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/07/多线程锁的安全性/">多线程锁的安全性</a>
+                    <a href="/2018/11/06/多线程/">多线程</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/28/springboot操作dao层/">springboot操作dao层</a>
+                    <a href="/2018/11/07/多线程锁的安全性/">多线程锁的安全性</a>
                 </span>
             </li>
             
@@ -475,35 +475,35 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/教程/" style="font-size: 19.30019053195236px;" class="tag-cloud-link">教程</a>
+    <a href="/tags/jvm/" style="font-size: 18.443504274648358px;" class="tag-cloud-link">jvm</a>
     
-    <a href="/tags/前端/" style="font-size: 13.858505259425122px;" class="tag-cloud-link">前端</a>
+    <a href="/tags/struts2/" style="font-size: 10.81910125381533px;" class="tag-cloud-link">struts2</a>
     
-    <a href="/tags/jvm/" style="font-size: 10.179700939452212px;" class="tag-cloud-link">jvm</a>
+    <a href="/tags/ssh/" style="font-size: 10.070948151268183px;" class="tag-cloud-link">ssh</a>
     
-    <a href="/tags/Mybatis/" style="font-size: 16.376395679723963px;" class="tag-cloud-link">Mybatis</a>
+    <a href="/tags/Mybatis/" style="font-size: 18.946826899153248px;" class="tag-cloud-link">Mybatis</a>
     
-    <a href="/tags/Mapper/" style="font-size: 13.940195957723532px;" class="tag-cloud-link">Mapper</a>
+    <a href="/tags/Mapper/" style="font-size: 8.636274943640359px;" class="tag-cloud-link">Mapper</a>
     
-    <a href="/tags/struts2/" style="font-size: 16.53297528291697px;" class="tag-cloud-link">struts2</a>
+    <a href="/tags/教程/" style="font-size: 8.642744733818263px;" class="tag-cloud-link">教程</a>
     
-    <a href="/tags/ssh/" style="font-size: 8.255937380182143px;" class="tag-cloud-link">ssh</a>
+    <a href="/tags/前端/" style="font-size: 17.960611580387514px;" class="tag-cloud-link">前端</a>
     
-    <a href="/tags/springboot/" style="font-size: 12.517093260430777px;" class="tag-cloud-link">springboot</a>
+    <a href="/tags/springboot/" style="font-size: 13.988606886673537px;" class="tag-cloud-link">springboot</a>
     
-    <a href="/tags/spring/" style="font-size: 12.05980443961735px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/spring/" style="font-size: 11.734506638074183px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/Thread/" style="font-size: 10.359663376784928px;" class="tag-cloud-link">Thread</a>
+    <a href="/tags/mybatis/" style="font-size: 14.147343653401517px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/多线程/" style="font-size: 8.30666681943706px;" class="tag-cloud-link">多线程</a>
+    <a href="/tags/dao/" style="font-size: 16.404546015115663px;" class="tag-cloud-link">dao</a>
     
-    <a href="/tags/springmvc/" style="font-size: 10.309018073740864px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/springmvc/" style="font-size: 10.465559465710854px;" class="tag-cloud-link">springmvc</a>
     
-    <a href="/tags/mybatis/" style="font-size: 10.51372063863635px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/Thread/" style="font-size: 17.13751682285652px;" class="tag-cloud-link">Thread</a>
     
-    <a href="/tags/thread/" style="font-size: 13.485750559572761px;" class="tag-cloud-link">thread</a>
+    <a href="/tags/多线程/" style="font-size: 11.712155433549146px;" class="tag-cloud-link">多线程</a>
     
-    <a href="/tags/dao/" style="font-size: 19.31641054503873px;" class="tag-cloud-link">dao</a>
+    <a href="/tags/thread/" style="font-size: 10.667814628240126px;" class="tag-cloud-link">thread</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">

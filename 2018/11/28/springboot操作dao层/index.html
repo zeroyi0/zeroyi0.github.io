@@ -141,15 +141,15 @@
                         
                         
                         <li>
-                            <a href="/tags/教程/">教程</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/前端/">前端</a>
-                        </li>
-                        
-                        <li>
                             <a href="/tags/jvm/">jvm</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/struts2/">struts2</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/ssh/">ssh</a>
                         </li>
                         
                         
@@ -236,7 +236,7 @@
         </center>
     </div>
     <div class="content-article">
-        <h3 id="1、添加jar包依赖"><a href="#1、添加jar包依赖" class="headerlink" title="1、添加jar包依赖"></a>1、添加jar包依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <h3 id="1、添加jar包依赖"><a href="#1、添加jar包依赖" class="headerlink" title="1、添加jar包依赖"></a>1、添加jar包依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="2、添加配置文件"><a href="#2、添加配置文件" class="headerlink" title="2、添加配置文件"></a>2、添加配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.url=jdbc:mysql://localhost:3306/test</span><br><span class="line">spring.datasource.username=root</span><br><span class="line">spring.datasource.password=root</span><br><span class="line">spring.datasource.driver-class-name=com.mysql.jdbc.Driver</span><br><span class="line"></span><br><span class="line">spring.jpa.properties.hibernate.hbm2ddl.auto=update</span><br><span class="line">spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect</span><br><span class="line">spring.jpa.show-sql= true</span><br></pre></td></tr></table></figure>
 <h4 id="hibernate-hbm2ddl-auto属性"><a href="#hibernate-hbm2ddl-auto属性" class="headerlink" title="hibernate.hbm2ddl.auto属性"></a>hibernate.hbm2ddl.auto属性</h4><ul>
 <li>create： 每次加载hibernate时都会删除上一次的生成的表，然后根据你的model类再重新来生成新表。</li>
@@ -245,7 +245,7 @@
 <li>validate ：每次加载hibernate时，验证创建数据库表结构，只会和数据库中的表进行比较，不会创建新表，但是会插入新值。</li>
 </ul>
 <h3 id="3、添加实体类"><a href="#3、添加实体类" class="headerlink" title="3、添加实体类"></a>3、添加实体类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span></span><br><span class="line">    <span class="meta">@Column</span>(nullable = <span class="keyword">false</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">long</span> id;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Column</span>(nullable = <span class="keyword">false</span>)</span><br><span class="line">    <span class="keyword">private</span> String userName;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Column</span>(nullable = <span class="keyword">false</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> userAge;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// setters and getters</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4、添加Dao层接口"><a href="#4、添加Dao层接口" class="headerlink" title="4、添加Dao层接口"></a>4、添加Dao层接口</h3><p>dao层接口只需继承<code>JpaRepository</code>即可，可通过方法名自动生成查找sql<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public<span class="built_in"> interface </span>UserDao extends JpaRepository&lt;User, Long&gt; &#123;</span><br><span class="line">   <span class="built_in"> User </span>findUserByUserName(String userName);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="4、添加Dao层接口"><a href="#4、添加Dao层接口" class="headerlink" title="4、添加Dao层接口"></a>4、添加Dao层接口</h3><p>dao层接口只需继承<code>JpaRepository</code>即可，可通过方法名自动生成查找sql(<strong>注意添加泛型</strong>)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface UserDao extends JpaRepository&lt;User, Long&gt; &#123;</span><br><span class="line">    User findUserByUserName(String userName);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
     </div>
 </article>
@@ -305,6 +305,18 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2018/12/01/20181201092046/">20181201092046</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/29/springboot整合mybatis/">springboot整合mybatis</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2018/11/28/springboot操作dao层/">springboot操作dao层</a>
                 </span>
             </li>
@@ -351,18 +363,6 @@
                 </span>
             </li>
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/07/log4j使用教程/">log4j使用教程</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/06/Mybatis使用Mapper代理/">Mybatis</a>
-                </span>
-            </li>
-            
         </ul>
     </div>
 </aside>
@@ -381,13 +381,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/17/JVM模型/">JVM模型</a>
+                    <a href="/2018/12/01/20181201092046/">20181201092046</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/06/Mybatis使用Mapper代理/">Mybatis</a>
+                    <a href="/2018/11/17/JVM模型/">JVM模型</a>
                 </span>
             </li>
             
@@ -399,7 +399,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/27/springboot-开篇/">springboot init</a>
+                    <a href="/2018/11/06/Mybatis使用Mapper代理/">Mybatis</a>
                 </span>
             </li>
             
@@ -411,7 +411,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/07/log4j使用教程/">log4j使用教程</a>
+                    <a href="/2018/11/27/springboot-开篇/">springboot init</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/14/ssm框架的常用配置（备用）/">ssm框架的常用配置（备用）</a>
                 </span>
             </li>
             
@@ -429,13 +435,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/14/ssm框架的常用配置（备用）/">ssm框架的常用配置（备用）</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/28/springboot操作dao层/">springboot操作dao层</a>
+                    <a href="/2018/11/07/多线程锁的安全性/">多线程锁的安全性</a>
                 </span>
             </li>
             
@@ -460,35 +460,35 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/教程/" style="font-size: 10.698089970256138px;" class="tag-cloud-link">教程</a>
+    <a href="/tags/jvm/" style="font-size: 9.854127472359037px;" class="tag-cloud-link">jvm</a>
     
-    <a href="/tags/前端/" style="font-size: 9.395500417506074px;" class="tag-cloud-link">前端</a>
+    <a href="/tags/struts2/" style="font-size: 19.744969780713504px;" class="tag-cloud-link">struts2</a>
     
-    <a href="/tags/jvm/" style="font-size: 10.167847433704042px;" class="tag-cloud-link">jvm</a>
+    <a href="/tags/ssh/" style="font-size: 9.781891837082096px;" class="tag-cloud-link">ssh</a>
     
-    <a href="/tags/Mybatis/" style="font-size: 11.834017140458041px;" class="tag-cloud-link">Mybatis</a>
+    <a href="/tags/Mybatis/" style="font-size: 15.284564319927405px;" class="tag-cloud-link">Mybatis</a>
     
-    <a href="/tags/Mapper/" style="font-size: 18.93811824974957px;" class="tag-cloud-link">Mapper</a>
+    <a href="/tags/Mapper/" style="font-size: 17.398920796034766px;" class="tag-cloud-link">Mapper</a>
     
-    <a href="/tags/struts2/" style="font-size: 19.05536796863197px;" class="tag-cloud-link">struts2</a>
+    <a href="/tags/教程/" style="font-size: 13.006311460561662px;" class="tag-cloud-link">教程</a>
     
-    <a href="/tags/ssh/" style="font-size: 10.369528063009867px;" class="tag-cloud-link">ssh</a>
+    <a href="/tags/前端/" style="font-size: 11.096222853795854px;" class="tag-cloud-link">前端</a>
     
-    <a href="/tags/springboot/" style="font-size: 15.890211844108595px;" class="tag-cloud-link">springboot</a>
+    <a href="/tags/springboot/" style="font-size: 16.335868858694344px;" class="tag-cloud-link">springboot</a>
     
-    <a href="/tags/spring/" style="font-size: 8.239619879666137px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/spring/" style="font-size: 16.44045079445705px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/Thread/" style="font-size: 11.730257585773707px;" class="tag-cloud-link">Thread</a>
+    <a href="/tags/mybatis/" style="font-size: 14.841147243322943px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/多线程/" style="font-size: 10.316206423258738px;" class="tag-cloud-link">多线程</a>
+    <a href="/tags/dao/" style="font-size: 18.477608192010706px;" class="tag-cloud-link">dao</a>
     
-    <a href="/tags/springmvc/" style="font-size: 9.7146178641269px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/springmvc/" style="font-size: 13.732732757162658px;" class="tag-cloud-link">springmvc</a>
     
-    <a href="/tags/mybatis/" style="font-size: 9.479682551813031px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/Thread/" style="font-size: 13.966165704993402px;" class="tag-cloud-link">Thread</a>
     
-    <a href="/tags/thread/" style="font-size: 11.787417468467568px;" class="tag-cloud-link">thread</a>
+    <a href="/tags/多线程/" style="font-size: 9.544395728250496px;" class="tag-cloud-link">多线程</a>
     
-    <a href="/tags/dao/" style="font-size: 19.8666644916786px;" class="tag-cloud-link">dao</a>
+    <a href="/tags/thread/" style="font-size: 11.948187769108646px;" class="tag-cloud-link">thread</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
