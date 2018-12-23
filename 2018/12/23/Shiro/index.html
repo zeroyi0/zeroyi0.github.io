@@ -141,15 +141,15 @@
                         
                         
                         <li>
-                            <a href="/tags/jvm/">jvm</a>
-                        </li>
-                        
-                        <li>
                             <a href="/tags/教程/">教程</a>
                         </li>
                         
                         <li>
                             <a href="/tags/前端/">前端</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/jvm/">jvm</a>
                         </li>
                         
                         
@@ -274,10 +274,10 @@
 <li><code>ShiroFilterFactoryBean</code>过滤器工厂</li>
 <li>开启<code>shiro</code>注解</li>
 </ul>
-<h3 id="将自定义Realm加入Spring-Bean工厂"><a href="#将自定义Realm加入Spring-Bean工厂" class="headerlink" title="将自定义Realm加入Spring Bean工厂"></a>将自定义Realm加入Spring Bean工厂</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> @Bean</span><br><span class="line">public ShiroRealm shiroRealm() &#123;</span><br><span class="line">    return new ShiroRealm();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="将自定义Realm加入Spring-Bean工厂"><a href="#将自定义Realm加入Spring-Bean工厂" class="headerlink" title="将自定义Realm加入Spring Bean工厂"></a>将自定义Realm加入Spring Bean工厂</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ShiroRealm <span class="title">shiroRealm</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ShiroRealm();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="配置安全管理器"><a href="#配置安全管理器" class="headerlink" title="配置安全管理器"></a>配置安全管理器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> SecurityManager <span class="title">securityManager</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    DefaultWebSecurityManager defaultSecurityManager = <span class="keyword">new</span> DefaultWebSecurityManager();</span><br><span class="line">    <span class="comment">// 添加自定义Realm</span></span><br><span class="line">    defaultSecurityManager.setRealm(shiroRealm());</span><br><span class="line">    <span class="keyword">return</span> defaultSecurityManager;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="开启shiro注解"><a href="#开启shiro注解" class="headerlink" title="开启shiro注解"></a>开启shiro注解</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> AuthorizationAttributeSourceAdvisor <span class="title">authorizationAttributeSourceAdvisor</span><span class="params">(SecurityManager securityManager)</span> </span>&#123;</span><br><span class="line">    AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = <span class="keyword">new</span> AuthorizationAttributeSourceAdvisor();</span><br><span class="line">    authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);</span><br><span class="line">    <span class="keyword">return</span> authorizationAttributeSourceAdvisor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="配置过滤器工厂"><a href="#配置过滤器工厂" class="headerlink" title="配置过滤器工厂"></a>配置过滤器工厂</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> @Bean</span><br><span class="line">public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager) &#123;</span><br><span class="line">    ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();</span><br><span class="line">    </span><br><span class="line">    // 添加安全管理器</span><br><span class="line">    shiroFilterFactoryBean.setSecurityManager(securityManager);</span><br><span class="line">    // 登录地址</span><br><span class="line">    shiroFilterFactoryBean.setLoginUrl(&quot;/login&quot;);</span><br><span class="line">    // 成功返回地址</span><br><span class="line">    shiroFilterFactoryBean.setSuccessUrl(&quot;/index&quot;);</span><br><span class="line">    // 错误地址</span><br><span class="line">    shiroFilterFactoryBean.setUnauthorizedUrl(&quot;/error&quot;);</span><br><span class="line">    </span><br><span class="line">    Map&lt;String, String&gt; map = new HashMap&lt;&gt;();</span><br><span class="line">    // 不拦截url</span><br><span class="line">    map.put(&quot;/sys/login&quot;, &quot;anon&quot;);</span><br><span class="line">    map.put(&quot;/swagger-ui.html&quot;, &quot;anon&quot;);</span><br><span class="line">    map.put(&quot;/swagger-resources/**&quot;, &quot;anon&quot;);</span><br><span class="line">    map.put(&quot;/v2/**&quot;, &quot;anon&quot;);</span><br><span class="line">    map.put(&quot;/webjars/**&quot;, &quot;anon&quot;);</span><br><span class="line">    // 登出地址</span><br><span class="line">    map.put(&quot;/logout&quot;, &quot;logout&quot;);</span><br><span class="line">    // 其余全部拦截</span><br><span class="line">    map.put(&quot;/**&quot;, &quot;authc&quot;);</span><br><span class="line">    shiroFilterFactoryBean.setFilterChainDefinitionMap(map);</span><br><span class="line"></span><br><span class="line">    return shiroFilterFactoryBean;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="配置过滤器工厂"><a href="#配置过滤器工厂" class="headerlink" title="配置过滤器工厂"></a>配置过滤器工厂</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ShiroFilterFactoryBean <span class="title">shiroFilterFactoryBean</span><span class="params">(SecurityManager securityManager)</span> </span>&#123;</span><br><span class="line">    ShiroFilterFactoryBean shiroFilterFactoryBean = <span class="keyword">new</span> ShiroFilterFactoryBean();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 添加安全管理器</span></span><br><span class="line">    shiroFilterFactoryBean.setSecurityManager(securityManager);</span><br><span class="line">    <span class="comment">// 登录地址</span></span><br><span class="line">    shiroFilterFactoryBean.setLoginUrl(<span class="string">"/login"</span>);</span><br><span class="line">    <span class="comment">// 成功返回地址</span></span><br><span class="line">    shiroFilterFactoryBean.setSuccessUrl(<span class="string">"/index"</span>);</span><br><span class="line">    <span class="comment">// 错误地址</span></span><br><span class="line">    shiroFilterFactoryBean.setUnauthorizedUrl(<span class="string">"/error"</span>);</span><br><span class="line">    </span><br><span class="line">    Map&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="comment">// 不拦截url</span></span><br><span class="line">    map.put(<span class="string">"/sys/login"</span>, <span class="string">"anon"</span>);</span><br><span class="line">    map.put(<span class="string">"/swagger-ui.html"</span>, <span class="string">"anon"</span>);</span><br><span class="line">    map.put(<span class="string">"/swagger-resources/**"</span>, <span class="string">"anon"</span>);</span><br><span class="line">    map.put(<span class="string">"/v2/**"</span>, <span class="string">"anon"</span>);</span><br><span class="line">    map.put(<span class="string">"/webjars/**"</span>, <span class="string">"anon"</span>);</span><br><span class="line">    <span class="comment">// 登出地址</span></span><br><span class="line">    map.put(<span class="string">"/logout"</span>, <span class="string">"logout"</span>);</span><br><span class="line">    <span class="comment">// 其余全部拦截</span></span><br><span class="line">    map.put(<span class="string">"/**"</span>, <span class="string">"authc"</span>);</span><br><span class="line">    shiroFilterFactoryBean.setFilterChainDefinitionMap(map);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> shiroFilterFactoryBean;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 </article>
@@ -419,7 +419,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/28/helllo-Struts2!/">helllo Struts2!</a>
+                    <a href="/2018/11/17/JVM模型/">JVM模型</a>
                 </span>
             </li>
             
@@ -431,13 +431,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/12/23/Shiro/">Shiro入门</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/12/01/spring-boot-实现自定义DaoImpl/">spring-boot 操作dao层 （二）</a>
+                    <a href="/2018/11/28/helllo-Struts2!/">helllo Struts2!</a>
                 </span>
             </li>
             
@@ -455,7 +449,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/06/多线程/">多线程</a>
+                    <a href="/2018/11/29/springboot整合mybatis/">springboot整合mybatis</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/08/多线程等待和唤醒/">多线程等待和唤醒</a>
                 </span>
             </li>
             
@@ -467,7 +467,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/07/多线程锁的安全性/">多线程锁的安全性</a>
+                    <a href="/2018/11/06/多线程/">多线程</a>
                 </span>
             </li>
             
@@ -492,43 +492,43 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/jvm/" style="font-size: 13.219475214529977px;" class="tag-cloud-link">jvm</a>
+    <a href="/tags/教程/" style="font-size: 18.204367675462695px;" class="tag-cloud-link">教程</a>
     
-    <a href="/tags/教程/" style="font-size: 17.72932915949258px;" class="tag-cloud-link">教程</a>
+    <a href="/tags/前端/" style="font-size: 18.796756593247878px;" class="tag-cloud-link">前端</a>
     
-    <a href="/tags/前端/" style="font-size: 19.880718789580133px;" class="tag-cloud-link">前端</a>
+    <a href="/tags/jvm/" style="font-size: 12.146499545852368px;" class="tag-cloud-link">jvm</a>
     
-    <a href="/tags/struts2/" style="font-size: 8.577931101892672px;" class="tag-cloud-link">struts2</a>
+    <a href="/tags/Mybatis/" style="font-size: 17.45614875797214px;" class="tag-cloud-link">Mybatis</a>
     
-    <a href="/tags/ssh/" style="font-size: 19.137966451942912px;" class="tag-cloud-link">ssh</a>
+    <a href="/tags/Mapper/" style="font-size: 14.290270771807162px;" class="tag-cloud-link">Mapper</a>
     
-    <a href="/tags/Mybatis/" style="font-size: 11.595054825215149px;" class="tag-cloud-link">Mybatis</a>
+    <a href="/tags/struts2/" style="font-size: 9.245268296086614px;" class="tag-cloud-link">struts2</a>
     
-    <a href="/tags/Mapper/" style="font-size: 11.855427204221465px;" class="tag-cloud-link">Mapper</a>
+    <a href="/tags/ssh/" style="font-size: 18.312082621842414px;" class="tag-cloud-link">ssh</a>
     
-    <a href="/tags/spring-boot/" style="font-size: 16.06221547190193px;" class="tag-cloud-link">spring-boot</a>
+    <a href="/tags/springboot/" style="font-size: 19.564690385249943px;" class="tag-cloud-link">springboot</a>
     
-    <a href="/tags/shiro/" style="font-size: 12.844566142186805px;" class="tag-cloud-link">shiro</a>
+    <a href="/tags/spring/" style="font-size: 14.512611504283928px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/登录/" style="font-size: 9.666436303590057px;" class="tag-cloud-link">登录</a>
+    <a href="/tags/dao/" style="font-size: 14.902395229969144px;" class="tag-cloud-link">dao</a>
     
-    <a href="/tags/认证/" style="font-size: 11.61881411474408px;" class="tag-cloud-link">认证</a>
+    <a href="/tags/mybatis/" style="font-size: 16.26603616663543px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/dao/" style="font-size: 15.104057907270583px;" class="tag-cloud-link">dao</a>
+    <a href="/tags/spring-boot/" style="font-size: 14.694655582264764px;" class="tag-cloud-link">spring-boot</a>
     
-    <a href="/tags/springboot/" style="font-size: 12.043297657523304px;" class="tag-cloud-link">springboot</a>
+    <a href="/tags/多线程/" style="font-size: 8.29173453008277px;" class="tag-cloud-link">多线程</a>
     
-    <a href="/tags/spring/" style="font-size: 13.153309682444888px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/Thread/" style="font-size: 15.749611642825998px;" class="tag-cloud-link">Thread</a>
     
-    <a href="/tags/Thread/" style="font-size: 14.250041177408836px;" class="tag-cloud-link">Thread</a>
+    <a href="/tags/springmvc/" style="font-size: 14.604134955160628px;" class="tag-cloud-link">springmvc</a>
     
-    <a href="/tags/多线程/" style="font-size: 19.174544942251547px;" class="tag-cloud-link">多线程</a>
+    <a href="/tags/shiro/" style="font-size: 11.681336133306965px;" class="tag-cloud-link">shiro</a>
     
-    <a href="/tags/springmvc/" style="font-size: 8.040118017277987px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/登录/" style="font-size: 10.710872935225442px;" class="tag-cloud-link">登录</a>
     
-    <a href="/tags/mybatis/" style="font-size: 9.896152842539104px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/认证/" style="font-size: 17.32034389997349px;" class="tag-cloud-link">认证</a>
     
-    <a href="/tags/thread/" style="font-size: 8.107930452661947px;" class="tag-cloud-link">thread</a>
+    <a href="/tags/thread/" style="font-size: 8.70280673115461px;" class="tag-cloud-link">thread</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
