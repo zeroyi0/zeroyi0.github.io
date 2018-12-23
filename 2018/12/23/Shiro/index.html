@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+	<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+	<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="旅丶">	
+    
+    
+    
+    
+    
+    
+    <title>Shiro入门 | Welcome to the World</title>
+    <link href="”http://yoursite.com“" rel="”prefetch”">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head></html>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="http://yoursite.com" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://yoursite.com">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">Welcome to the World</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/categories">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/Mybatis/">Mybatis</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Mapper/">Mapper</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/教程/">教程</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://yoursite.com">Welcome to the World</a>
+        >
+        <span>Shiro入门</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/12/23/Shiro/">Shiro入门</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/spring-boot/">spring-boot</a>, 
+                
+                <a href="/tags/shiro/">shiro</a>, 
+                
+                <a href="/tags/登录/">登录</a>, 
+                
+                <a href="/tags/认证/">认证</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-12-23
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2018/12/23/Shiro/">Shiro入门</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-12-23
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/spring-boot/">spring-boot</a>, 
+                
+                <a href="/tags/shiro/">shiro</a>, 
+                
+                <a href="/tags/登录/">登录</a>, 
+                
+                <a href="/tags/认证/">认证</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="Shiro重要概念"><a href="#Shiro重要概念" class="headerlink" title="Shiro重要概念"></a>Shiro重要概念</h2><ul>
+<li><strong>Subject</strong>：当前操作的主体，即当前用户</li>
+<li><strong>Principal</strong>：一般指用户名</li>
+<li><strong>Credential</strong>：凭证，一般指密码，对当前用户进行验证</li>
+<li><strong>Realm</strong>：域。即存储用户信息的数据源</li>
+</ul>
+<hr>
+<h2 id="Shiro组成结构"><a href="#Shiro组成结构" class="headerlink" title="Shiro组成结构"></a>Shiro组成结构</h2><ul>
+<li>SecurityManager 安全管理器</li>
+<li>Authenticator 认证器</li>
+<li>Authorizer 授权器</li>
+<li>Realm 域</li>
+<li>Session Manager 会话管理</li>
+<li>CacheManager 缓存管理</li>
+<li>Cryptography 密码管理</li>
+</ul>
+<p><img src="https://images2015.cnblogs.com/blog/496517/201607/496517-20160728005411872-797465418.png" alt="Shiro机构"></p>
+<hr>
+<h3 id="Authentication-登录认证"><a href="#Authentication-登录认证" class="headerlink" title="Authentication 登录认证"></a>Authentication 登录认证</h3><p>认证子系统。一般用于用户的登录认证操作。<br>登录时调用<code>subject.login(usernamePasswordToken)</code>方法进行认证。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">login</span><span class="params">(@RequestBody LoginForm loginForm)</span></span>&#123;</span><br><span class="line">        <span class="comment">//添加用户认证信息</span></span><br><span class="line">        Subject subject = SecurityUtils.getSubject();</span><br><span class="line">        UsernamePasswordToken usernamePasswordToken = <span class="keyword">new</span> UsernamePasswordToken(</span><br><span class="line">                loginForm.getUsername(),</span><br><span class="line">                loginForm.getPassword());</span><br><span class="line">        <span class="comment">//进行验证，这里可以捕获异常，然后返回对应信息</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            subject.login(usernamePasswordToken);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (UnknownAccountException | IncorrectCredentialsException e1) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"用户名名或密码不正确!!!"</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ExcessiveAttemptsException e2) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"超过了尝试登录的次数，您的账户已经被锁定"</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (AuthenticationException e) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"发生未知错误，登录失败"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"登录成功!!!"</span>;</span><br></pre></td></tr></table></figure></p>
+<p>在<code>Realm</code>中，将从数据库中查询出的信息与<code>token</code>中的<code>userName</code>和<code>passWord</code>进行比对，从而返回登录的状态。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取用户认证信息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> AuthenticationInfo <span class="title">doGetAuthenticationInfo</span><span class="params">(AuthenticationToken token)</span> <span class="keyword">throws</span> AuthenticationException </span>&#123;</span><br><span class="line">    UsernamePasswordToken upToken = (UsernamePasswordToken) token;</span><br><span class="line">    String userName = upToken.getUsername();</span><br><span class="line">    <span class="keyword">if</span> (!StringUtils.isEmpty(userName)) &#123;</span><br><span class="line">        <span class="comment">// 从数据库查询用户信息</span></span><br><span class="line">        UserEntity userEntity = userService.getUserByUserName(userName);</span><br><span class="line">        <span class="keyword">if</span> (userEntity != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> SimpleAuthenticationInfo(userEntity.getUserName(), userEntity.getUserPwd(), getName());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>同时在<code>JdbcRealm</code>中，已经自动实现了<code>doGetAuthenticationInfo</code>方法，但其所采用自带的数据库查询语句，对于我们的表字段名等不一定适合，可以对其进行修改<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JdbcRealm</span> <span class="keyword">extends</span> <span class="title">AuthorizingRealm</span> </span>&#123;</span><br><span class="line">    <span class="comment">//SQL查询语句</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">final</span> String DEFAULT_AUTHENTICATION_QUERY = <span class="string">"select password from users where username = ?"</span>;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">final</span> String DEFAULT_SALTED_AUTHENTICATION_QUERY = <span class="string">"select password, password_salt from users where username = ?"</span>;</span><br><span class="line">    <span class="comment">// 使用</span></span><br><span class="line">    <span class="keyword">private</span> String[] getPasswordForUser(Connection conn, String username) <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        ps = conn.prepareStatement(authenticationQuery);</span><br><span class="line">        ps.setString(<span class="number">1</span>, username);</span><br><span class="line">        <span class="comment">// Execute query</span></span><br><span class="line">        rs = ps.executeQuery();</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="Authorization-访问控制（授权）"><a href="#Authorization-访问控制（授权）" class="headerlink" title="Authorization 访问控制（授权）"></a>Authorization 访问控制（授权）</h3><p>用户在访问某个地址时，授权系统将从<code>Realm</code>中查询并赋予该角色相应的角色或权限，从而判断该用户是否有权访问该地址<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取授权信息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> AuthorizationInfo <span class="title">doGetAuthorizationInfo</span><span class="params">(PrincipalCollection principals)</span> </span>&#123;</span><br><span class="line">    String userName = (String) principals.getPrimaryPrincipal();</span><br><span class="line">    <span class="keyword">if</span> (userName == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="comment">// 从数据库中读取该用户权限</span></span><br><span class="line">        List&lt;String&gt; menus = userService.getPermissionByUserName(userName);</span><br><span class="line">        <span class="keyword">if</span> (menus != <span class="keyword">null</span> &amp;&amp; !menus.isEmpty()) &#123;</span><br><span class="line">            SimpleAuthorizationInfo info = <span class="keyword">new</span> SimpleAuthorizationInfo();</span><br><span class="line">            <span class="comment">// 添加权限</span></span><br><span class="line">            info.addStringPermissions(menus);</span><br><span class="line">            <span class="keyword">return</span> info;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>SimpleAuthorizationInfo</code> 封装了角色和权限，其实这也说明了实现“访问控制”两种方式：一是<strong>基于角色的访问控制</strong>；而另一种是<strong>基于资源的访问控制</strong>。</p>
+<h2 id="Shiro配置信息"><a href="#Shiro配置信息" class="headerlink" title="Shiro配置信息"></a>Shiro配置信息</h2><ul>
+<li>自定义<code>Realm</code></li>
+<li><code>SecurityManager</code>安全管理器</li>
+<li><code>ShiroFilterFactoryBean</code>过滤器工厂</li>
+<li>开启<code>shiro</code>注解</li>
+</ul>
+<h3 id="将自定义Realm加入Spring-Bean工厂"><a href="#将自定义Realm加入Spring-Bean工厂" class="headerlink" title="将自定义Realm加入Spring Bean工厂"></a>将自定义Realm加入Spring Bean工厂</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> @Bean</span><br><span class="line">public ShiroRealm shiroRealm() &#123;</span><br><span class="line">    return new ShiroRealm();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="配置安全管理器"><a href="#配置安全管理器" class="headerlink" title="配置安全管理器"></a>配置安全管理器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> SecurityManager <span class="title">securityManager</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    DefaultWebSecurityManager defaultSecurityManager = <span class="keyword">new</span> DefaultWebSecurityManager();</span><br><span class="line">    <span class="comment">// 添加自定义Realm</span></span><br><span class="line">    defaultSecurityManager.setRealm(shiroRealm());</span><br><span class="line">    <span class="keyword">return</span> defaultSecurityManager;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="开启shiro注解"><a href="#开启shiro注解" class="headerlink" title="开启shiro注解"></a>开启shiro注解</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> AuthorizationAttributeSourceAdvisor <span class="title">authorizationAttributeSourceAdvisor</span><span class="params">(SecurityManager securityManager)</span> </span>&#123;</span><br><span class="line">    AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = <span class="keyword">new</span> AuthorizationAttributeSourceAdvisor();</span><br><span class="line">    authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);</span><br><span class="line">    <span class="keyword">return</span> authorizationAttributeSourceAdvisor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="配置过滤器工厂"><a href="#配置过滤器工厂" class="headerlink" title="配置过滤器工厂"></a>配置过滤器工厂</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> @Bean</span><br><span class="line">public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager) &#123;</span><br><span class="line">    ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();</span><br><span class="line">    </span><br><span class="line">    // 添加安全管理器</span><br><span class="line">    shiroFilterFactoryBean.setSecurityManager(securityManager);</span><br><span class="line">    // 登录地址</span><br><span class="line">    shiroFilterFactoryBean.setLoginUrl(&quot;/login&quot;);</span><br><span class="line">    // 成功返回地址</span><br><span class="line">    shiroFilterFactoryBean.setSuccessUrl(&quot;/index&quot;);</span><br><span class="line">    // 错误地址</span><br><span class="line">    shiroFilterFactoryBean.setUnauthorizedUrl(&quot;/error&quot;);</span><br><span class="line">    </span><br><span class="line">    Map&lt;String, String&gt; map = new HashMap&lt;&gt;();</span><br><span class="line">    // 不拦截url</span><br><span class="line">    map.put(&quot;/sys/login&quot;, &quot;anon&quot;);</span><br><span class="line">    map.put(&quot;/swagger-ui.html&quot;, &quot;anon&quot;);</span><br><span class="line">    map.put(&quot;/swagger-resources/**&quot;, &quot;anon&quot;);</span><br><span class="line">    map.put(&quot;/v2/**&quot;, &quot;anon&quot;);</span><br><span class="line">    map.put(&quot;/webjars/**&quot;, &quot;anon&quot;);</span><br><span class="line">    // 登出地址</span><br><span class="line">    map.put(&quot;/logout&quot;, &quot;logout&quot;);</span><br><span class="line">    // 其余全部拦截</span><br><span class="line">    map.put(&quot;/**&quot;, &quot;authc&quot;);</span><br><span class="line">    shiroFilterFactoryBean.setFilterChainDefinitionMap(map);</span><br><span class="line"></span><br><span class="line">    return shiroFilterFactoryBean;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get" action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            旅丶
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140" alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/23/Shiro/">Shiro入门</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/01/spring-boot-实现自定义DaoImpl/">spring-boot 操作dao层 （二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/29/springboot整合mybatis/">springboot整合mybatis</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/28/springboot操作dao层/">springboot操作dao层</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/28/helllo-Struts2!/">helllo Struts2!</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/27/springboot-开篇/">springboot init</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/22/HTML基础/">HTML基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/17/JVM模型/">JVM模型</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/14/ssm框架的常用配置（备用）/">ssm框架的常用配置（备用）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/08/多线程等待和唤醒/">多线程等待和唤醒</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/06/Mybatis使用Mapper代理/">Mybatis</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/17/JVM模型/">JVM模型</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/06/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/07/log4j使用教程/">log4j使用教程</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/28/springboot操作dao层/">springboot操作dao层</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/29/springboot整合mybatis/">springboot整合mybatis</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/01/spring-boot-实现自定义DaoImpl/">spring-boot 操作dao层 （二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/27/springboot-开篇/">springboot init</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/08/多线程等待和唤醒/">多线程等待和唤醒</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/07/多线程锁的安全性/">多线程锁的安全性</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+                <li class="">
+                    <a href="/2018/12/23/Shiro/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                <li class="">
+                    <a href="/2018/12/23/Shiro/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                <li class="">
+                    <a href="/2018/12/23/Shiro/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/Mybatis/" style="font-size: 19.1089428500704px;" class="tag-cloud-link">Mybatis</a>
+    
+    <a href="/tags/Mapper/" style="font-size: 19.238744075634617px;" class="tag-cloud-link">Mapper</a>
+    
+    <a href="/tags/教程/" style="font-size: 13.880497052150892px;" class="tag-cloud-link">教程</a>
+    
+    <a href="/tags/前端/" style="font-size: 11.74940634832851px;" class="tag-cloud-link">前端</a>
+    
+    <a href="/tags/jvm/" style="font-size: 15.158487169094572px;" class="tag-cloud-link">jvm</a>
+    
+    <a href="/tags/struts2/" style="font-size: 8.216975447687094px;" class="tag-cloud-link">struts2</a>
+    
+    <a href="/tags/ssh/" style="font-size: 9.006496903119725px;" class="tag-cloud-link">ssh</a>
+    
+    <a href="/tags/springboot/" style="font-size: 12.192628610936051px;" class="tag-cloud-link">springboot</a>
+    
+    <a href="/tags/dao/" style="font-size: 18.125020998902514px;" class="tag-cloud-link">dao</a>
+    
+    <a href="/tags/mybatis/" style="font-size: 15.713844498721812px;" class="tag-cloud-link">mybatis</a>
+    
+    <a href="/tags/spring-boot/" style="font-size: 8.520445481097834px;" class="tag-cloud-link">spring-boot</a>
+    
+    <a href="/tags/spring/" style="font-size: 12.135780440521774px;" class="tag-cloud-link">spring</a>
+    
+    <a href="/tags/springmvc/" style="font-size: 14.963044335168657px;" class="tag-cloud-link">springmvc</a>
+    
+    <a href="/tags/多线程/" style="font-size: 8.285934595409305px;" class="tag-cloud-link">多线程</a>
+    
+    <a href="/tags/Thread/" style="font-size: 12.071562024642658px;" class="tag-cloud-link">Thread</a>
+    
+    <a href="/tags/thread/" style="font-size: 19.397319644475168px;" class="tag-cloud-link">thread</a>
+    
+    <a href="/tags/shiro/" style="font-size: 16.184216571725003px;" class="tag-cloud-link">shiro</a>
+    
+    <a href="/tags/登录/" style="font-size: 8.220871280165689px;" class="tag-cloud-link">登录</a>
+    
+    <a href="/tags/认证/" style="font-size: 13.05318866168316px;" class="tag-cloud-link">认证</a>
+    
+</div>
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <script src="/plugins/prettify/src/prettify.js"></script>
+<script type="text/javascript">
+ hljs.initHighlightingOnLoad();
+</script>
+<footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 旅丶 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
+
+
+
+</html>
