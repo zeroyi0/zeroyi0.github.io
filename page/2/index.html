@@ -105,6 +105,81 @@
   
     <article class="article-card">
       <h2 class="article-head">
+        <a href="/2018/12/01/spring-boot-实现自定义DaoImpl/">spring-boot 操作dao层 （二）</a>
+      </h2>
+      <p class="article-date">December 1, 2018</p>
+      
+        
+  <a href="/tags#spring-boot">
+    <span class="tag-code">spring-boot</span>
+  </a>
+
+  <a href="/tags#dao">
+    <span class="tag-code">dao</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          
+spring-boot在使用jpa模块时，只需在dao层建立相应的dao接口，并让该接口继承自CrudRepository或JpaRepository即可，甚至无需写实现类。
+
+1234@Repositorypublic interface UserDao extends CrudRepo ...
+        
+      </div>
+      <a class="more" href="/2018/12/01/spring-boot-实现自定义DaoImpl/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2018/11/29/springboot整合mybatis/">springboot整合mybatis</a>
+      </h2>
+      <p class="article-date">November 29, 2018</p>
+      
+        
+  <a href="/tags#springboot">
+    <span class="tag-code">springboot</span>
+  </a>
+
+  <a href="/tags#mybatis">
+    <span class="tag-code">mybatis</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          dao层自动生成1、插件1234567891011&lt;!-- mybatis generator 自动生成代码插件 --&gt;&lt;plugin&gt;    &lt;groupId&gt;org.mybatis.generator&lt;/groupId&gt;    &lt;ar ...
+        
+      </div>
+      <a class="more" href="/2018/11/29/springboot整合mybatis/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2018/11/28/springboot操作dao层/">springboot操作dao层</a>
+      </h2>
+      <p class="article-date">November 28, 2018</p>
+      
+        
+  <a href="/tags#springboot">
+    <span class="tag-code">springboot</span>
+  </a>
+
+  <a href="/tags#dao">
+    <span class="tag-code">dao</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          1、添加jar包依赖12345678&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;artifactId&gt;spring-boot-starter-data-jpa& ...
+        
+      </div>
+      <a class="more" href="/2018/11/28/springboot操作dao层/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
         <a href="/2018/11/28/helllo-Struts2!/">helllo Struts2!</a>
       </h2>
       <p class="article-date">November 28, 2018</p>
@@ -304,92 +379,6 @@ sleep()和wait()的区别
         
       </div>
       <a class="more" href="/2018/11/07/多线程锁的安全性/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2018/11/07/log4j使用教程/">log4j使用教程</a>
-      </h2>
-      <p class="article-date">November 7, 2018</p>
-      
-      <div class="article-summary">
-        
-           Log4j 日志的四个级别 ，优先级从高到低分别是 ERROR 、 WARN 、 INFO 、 DEBUG
-=========================================================================
-设置log4j.rootLogge ...
-        
-      </div>
-      <a class="more" href="/2018/11/07/log4j使用教程/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2018/11/06/Mybatis使用Mapper代理/">Mybatis</a>
-      </h2>
-      <p class="article-date">November 6, 2018</p>
-      
-        
-  <a href="/tags#Mybatis">
-    <span class="tag-code">Mybatis</span>
-  </a>
-
-  <a href="/tags#Mapper">
-    <span class="tag-code">Mapper</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          
-在使用mapper代理时，需在dao层建立起对应的 mapper.xml 文件，并建立一个接口作为被代理对象所实现的接口接口名与 mpper.xml 的命名空间一致查询语句的id与接口中的方法名一一对应
-
-配置applicationContext.xml引入配置文件12&lt;!-- 引入 ...
-        
-      </div>
-      <a class="more" href="/2018/11/06/Mybatis使用Mapper代理/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2018/11/06/多线程/">多线程</a>
-      </h2>
-      <p class="article-date">November 6, 2018</p>
-      
-        
-  <a href="/tags#Thread">
-    <span class="tag-code">Thread</span>
-  </a>
-
-  <a href="/tags#多线程">
-    <span class="tag-code">多线程</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          什么是线程
-应用：一个应用可包含多个进程
-进程：一个进程至少包含一个线程
-线程：进程中执行的路径
-
-线程的状态
-创建
-运行
-冻结
-消亡
-
-如何创建一个线程
-继承Thread类
-重写run方法
-调用start方法启动线程
-
-
-一个线程只能被开启一次
-
-多线程情况下操作共享数据，导致线程不安全, ...
-        
-      </div>
-      <a class="more" href="/2018/11/06/多线程/">Read more</a>
     </article>
   
 
